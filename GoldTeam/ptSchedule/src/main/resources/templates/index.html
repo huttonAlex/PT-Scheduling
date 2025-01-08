@@ -1,0 +1,556 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+		* {
+		            margin: 0;
+		            padding: 0;
+		            list-style: none;
+		            text-decoration: none;
+		            box-sizing: border-box;
+		            font-family: sans-serif;
+		        }
+
+
+		        body {
+		            display: flex;
+		            justify-content: center;
+		            background-image: url(images/bodyslogo.jpg);
+		            background-size: 700px;
+		            background-repeat: no-repeat;
+		            position: fixed;
+		            background-position: 6% -9%;
+		        }
+
+				header nav li {
+				    display: table;
+				    height: 80%;
+				    float: right;
+				    margin-right: 30px;
+				    padding-top: 1%;
+				}
+
+
+				header nav a {
+				    color: #a67b5b;
+				}
+
+
+				header nav .button {
+				    background-color: #efb963;
+				    color: #FFF;
+				    padding: 10px 20px;
+				    border-radius: 4px;
+				    float: right;
+					margin-top: -10px;
+				}
+
+
+				    header nav .button:hover {
+				        filter: brightness(1.05);
+				    }
+
+
+
+
+
+
+				header {
+				    top: 0px;
+				    z-index: 999;
+				    color: #efb963;
+				    width: 100vw;
+				    height: 10vh;
+				    border-bottom: solid 1.5px #6b4b32;
+				    font-family: 'Poppins';
+				}
+
+
+				    header .logo img {
+				        margin-left: 50px;
+				        height: 70px;
+				        margin-top: 5px;
+				        float: left;
+				    }
+
+
+
+
+				main li {
+				    display: table;
+				    height: 100%;
+				    float: left;
+				    margin-right: 30px;
+				}
+
+				header nav li:last-of-type {
+				    margin-right: 0;    
+				}
+
+
+				header nav span {
+				    display: table-cell;
+				    vertical-align: middle;
+				}
+
+
+				header nav a {
+				    color: #a67b5b;
+				}
+
+
+				header nav .button {
+				    background-color: #efb963;
+				    color: #FFF;
+				    padding: 10px 20px;
+				    border-radius: 4px;
+				}
+
+
+				header nav .button:hover {
+				    filter: brightness(1.05);
+				}
+
+
+				main a {
+				    color: white;
+				}
+
+
+				main .button {
+				    background-color: #efb963;
+				    padding: 10px 20px;
+				    border-radius: 4px;
+				}
+
+
+				main .button:hover {
+				    filter: brightness(1.05);
+				}
+
+
+				#wrapper {
+				    margin-left: 15em;
+				    margin-right: 15em;
+				}
+
+
+				#center {
+				    margin-left: 15em;
+				    margin-right: 15em;
+				    text-align: center;
+				}
+
+
+				footer {
+				    position: fixed;
+				    bottom: 0;
+				    left: 0;
+				    z-index: 10;
+				    height: 20px;
+				    text-align: center;
+				    padding: 5px;
+				    text-align: center;
+				    background: #a67b5b;
+				    color: white;
+				    font-size: 20px;
+				    width: 100%;
+				}
+
+
+				h1 {
+				    font-family: 'Garamond',cursive;
+				    color: #6b4b32;
+				    font-size: 3vw;
+				    font-weight: 100;
+				    text-align: center;
+				}
+
+
+
+
+				.mainContainer {
+				    display: flex; /* Use Flexbox for layout */
+				    flex-direction: row; /* Arrange children in a row (side by side) */
+				    justify-content: flex-start; /* Align children to the start of the container */
+				    gap: 20px; /* Add space between the form and appointmentReturnContainer */
+				    margin: 0 auto; /* Center the entire container */
+				    max-width: 1200px; /* Set a maximum width */
+				}
+
+
+				.dateContainer {
+				    width: 50%;
+				}
+
+
+				.timeSelectContainer {
+				    width: 50%;
+				   
+				}
+
+
+
+
+
+
+				.calWrapper {
+				    width: 100%;
+				    margin-top: -5%;
+				    margin-left: 0;
+				    max-height: 60vh;
+				    border-radius: 10px;
+				    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+				    position: relative;
+				    /*left: 10px;
+				    top: 5px;*/
+				   
+				}
+
+
+
+
+				.calWrapper header {
+				    border-bottom: solid 10px #a67b5b; /* Separate border for the calendar header */
+				    width: 100% /* Space below the calendar header */
+				}
+
+
+
+
+				.calWrapper .current-date {
+				    font-size: 3.45rem;
+				    font-weight: 500;
+				    margin-left: 0; /* Ensure it aligns with the left edge */
+				}
+
+
+				.calWrapper .icons {
+				    display: flex;
+				}
+
+
+				.calWrapper .icons span {
+				    height: 38px;
+				    width: 38px;
+				    margin: 0 1px;
+				    cursor: pointer;
+				    color: #878787;
+				    text-align: center;
+				    line-height: 38px;
+				    font-size: 1.9rem;
+				    user-select: none;
+				    border-radius: 50%;
+				}
+
+
+				.calWrapper .icons span:last-child {
+				    margin-right: -10px;
+				}
+
+
+				.calWrapper .icons span:hover {
+				    background: #f2f2f2;
+				}
+
+
+				/* Calendar styles */
+				.calendar {
+				    padding: 8px;
+				}
+
+
+				.calendar ul {
+				    display: flex;
+				    justify-content: space-between; /* Ensure even spacing between items */
+				    list-style: none;
+				    text-align: center;
+				}
+
+
+				.calendar .weeks {
+				    display: grid; /* Use grid layout for the week header */
+				    grid-template-columns: repeat(7, 1fr); /* Create 7 equal columns */
+				    margin-bottom: 10px; /* Add space below the week header */
+				    font-weight: 500; /* Make headers bold */
+				}
+
+
+				.calendar .days {
+				    display: grid; /* Use grid layout for the days */
+				    grid-template-columns: repeat(7, 1fr); /* Create 7 equal columns for the days */
+				    gap: 10px; /* Add space between each day */
+				    margin-bottom: 20px; /* Space below the days */
+				}
+
+
+				.calendar li {
+				    color: #333;
+				    font-size: 1.07rem;
+				}
+
+
+				.calendar .weeks li,
+				.calendar .days li {
+				    z-index: 1;
+				    cursor: pointer;
+				    position: relative;
+				    height: 60px; /* Set a fixed height for each cell */
+				    display: flex; /* Center content within the cell */
+				    align-items: center; /* Center vertically */
+				    justify-content: center;
+				    width: 40px; /* Center horizontally */
+				}
+
+
+				.calWrapper.disabled {
+				    pointer-events: none;
+				    opacity: 0.5;
+				}
+
+
+				.days li.inactive {
+				    color: #aaa;
+				}
+
+
+				.days li.active {
+				    color: #000;
+				}
+
+
+				.days li::before {
+				    position: absolute;
+				    content: "";
+				    left: 50%;
+				    top: 50%;
+				    height: 40px;
+				    width: 40px;
+				    z-index: -1;
+				   
+				    border-radius: 50%;
+				    transform: translate(-50%, -50%);
+				}
+
+
+				.days li.active::before {
+				   
+				    border-radius: 0%;
+				    border-bottom: solid;
+				    color: #a67b5b;
+				}
+
+
+				.days li:not(.active):hover::before {
+				    background: #f2f2f2;
+				}
+
+
+				.days li.selected {
+				    background-color: #efb963;  /* Choose any color for the selected date */
+				    color: #000;                /* Text color for the selected date */
+				    border-radius: 50%;         /* Makes the date appear as a circle */
+				    width: 40px;                /* Adjust to match the width of the "active" class */
+				    height: 40px;               /* Adjust to match the height of the "active" class */
+				    line-height: 40px;          /* Center the text vertically */
+				    text-align: center;         /* Center the text horizontally */
+				    display: inline-block;
+				    box-sizing: border-box;     /* Ensure it's treated like a block element */
+				}
+
+
+				.therapy-type-container {
+				    display: flex;
+				    flex-direction: column; /* Stack label and select vertically */ /* Aligns the items to the left */
+				    margin-left: 11px;
+				}
+
+
+				.therapy-type-container label {
+				    margin-bottom: 5px;
+				}
+
+
+				.therapy-type-container select {
+				    padding: 5px;
+				    font-size: 16px;
+				    border-radius: 4px;
+				    border: 1px solid #ccc;
+				    width: 100%; /* Makes the select dropdown take full width */
+				    max-width: 300px; /* Limits the width of the dropdown */
+				}
+
+
+				.timeContainer {
+				    display: flex;
+				    flex-direction: column; /* Stack label and dropdown vertically */
+				    justify-content: center;
+				    max-width: 100%; /* Center vertically if needed */
+				}
+
+
+				#timeSelect {
+				    margin-top: 10px; /* Space between label and dropdown */
+				    padding: 5px; /* Add padding for better appearance */
+				    font-size: 14px;
+				    margin-bottom: 80px; /* Adjust font size */
+				}
+
+
+
+
+
+
+				form.appointmentForm {
+				   
+				   position: relative;/* Adds some space between the form and other elements *//* Adds padding for spacing inside the form */
+				   margin-left: 0;
+				   /* Optional: shadow to make it stand out */
+				   text-align: left;
+				    width: 100%;
+				    margin-bottom: 10%;
+				}
+
+
+				form.modifyForm {
+				    width: 100%;
+				    padding: 20px;
+				    background-color: #f9f9f9;
+				    display: block; /* Ensure the form is block-level */
+				}
+
+
+				form.returnForm {
+				    width: 100%;
+				    padding: 20px;
+				    background-color: #f9f9f9;
+				    display: block; /* Ensure the form is block-level */
+				}
+				 
+
+
+				#therapistsDisplay {
+				    border: 1px solid #ccc;
+				    padding: 10px;
+				    max-width: 100%;
+				    height: 100px;
+				    overflow-y: auto;
+				    background-color: #f9f9f9;
+				    margin-top: 10px;
+				}
+
+
+				#therapistsDropdown {
+				    margin-top: 5px;
+				    width: 300px;
+				    padding: 5px;
+				}
+
+
+				#therapyType, #dateOfApt, #timeOfApt ,#therapistSelect{
+				    display: none; /* This will hide the elements completely */
+				}
+
+
+				@media (max-width: 768px) { /* You can adjust 768px based on your needs */
+				    #selectorsContainer {
+				        flex-direction: column; /* Stack the boxes vertically */
+				        gap: 20px; /* Add more space between them when stacked */
+				    }
+				   
+				    .alignLeftBox, .alignMiddleBox, .alignRightBox {
+				        width: 100%; /* Ensure full width when stacked */
+				        margin: 0 auto; /* Center the boxes */
+				    }
+
+
+				    footer {
+				        font-size: 1rem; /* Decrease the font size */
+				        padding: 3px; /* Reduce padding for smaller screens */
+				        height: 15px; /* Reduce height for smaller screens */
+				    }
+				}
+
+
+				select {
+				    height: 45px;
+				    width: 100%;
+				    background: transparent;
+				    box-shadow: 2px 2px 5px #efb963;
+				    cursor: pointer;
+				    font-size: 16px;
+				    font-weight: 600;
+				    color: black;
+				    border: 0.5px solid #a67b5b;
+				    outline: none;
+				    border-radius: 10px;
+				   
+				    transition: all 0.2s ease-in-out;
+				    transform: translateY(-5px);
+				    margin-top: 5px;
+				    padding-left: 5px; /* Adjust padding for alignment */
+				}
+
+
+				/* Optional hover and active states for select to match input behavior */
+				select:hover {
+				    background: var(--primary-clr);
+				    border: none;
+				    color: black;
+				}
+
+
+				select:active {
+				    transform: translate(0px);
+				    transform: scale(1.1);
+				}
+
+
+				label{
+				    font-weight: bold;  
+				}
+
+
+				#setAvailabilityButton {
+				    background-color: #a67b5b;
+				    color: white;
+				    border: none;
+				    padding: 10px 20px;
+				    border-radius: 20px;
+				    font-size: 16px;
+				    text-align: center;
+				    font-weight: bold;
+				    margin-top: 5%;
+				}
+
+    </style>
+</head>
+<div>
+    <header>
+        <div class="logo">
+            <img src="/images/header.jpg" alt="logo">
+        </div>
+        <nav>
+            <li><span><a href="/api/auth/login" class="button">Login</a></span></li>
+        </nav>
+    </header>
+	<div>
+	        <div class="row">
+	            <div class="column">
+	            </div>
+	            <div class="column">
+	                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+	                <h1>Welcome, please login</h1>
+	            </div>
+	        </div>
+	    </div>
+    <footer>
+        <p>Gold Team CPT275 | FIT Physical Therapy</p>
+    </footer>
+</div>
+</html>

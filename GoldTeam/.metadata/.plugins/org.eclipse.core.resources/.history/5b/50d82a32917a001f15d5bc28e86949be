@@ -1,0 +1,86 @@
+package com.ttc.fitPT.ptSchedule.controller;
+
+import com.ttc.fitPT.ptSchedule.service.AuthService;
+import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+/**
+ * AuthController handles all authentication-related requests, including user login and logout.
+ * It delegates the authentication logic to the AuthService class and handles session management.
+ */
+@Controller  
+@RequestMapping("/api/auth")
+public class AuthController {
+
+	@Autowired
+	private AuthService authService;  // Injects the AuthService to handle authentication logic
+
+	/**
+ 	* This method handles POST requests for user login.
+ 	* It expects two parameters, username and password, from the login form.
+ 	* After validating the credentials, the user is redirected to their respective role-based home page.
+ 	* If authentication fails, the user is redirected back to the login page with an error message.
+ 	*
+ 	* @param username         	The username entered by the user
+ 	* @param password         	The password entered by the user
+ 	* @param redirectAttributes   Used to pass error messages if authentication fails
+ 	* @return A redirect to the appropriate home page based on the user role or back to the login page if authentication fails
+ 	*/
+	@PostMapping("/login")
+	public String login(@RequestParam("myUsername") String username,
+                    	@RequestParam("myPassword") String password,
+                    	RedirectAttributes redirectAttributes) {
+   	 
+    	// Authenticate user using AuthService
+    	String role = authService.authenticateUser(username, password);
+
+    	// If authentication is successful, redirect to the role controller.
+    	if (role != null) {
+        	return "redirect:/api/roleRedirect/" + role.toLowerCase();  // Redirects to role-based home page
+    	} else {
+        	redirectAttributes.addFlashAttribute("error", "Invalid credentials");
+        	return "redirect:/api/auth/login";  // Redirects to login page on failure
+    	}
+	}
+
+	/**
+ 	* This method handles GET requests to display the login page.
+ 	* It returns the name of the login HTML template.
+ 	*
+ 	* @return The "login" template name, directing Spring to look for login.html in the templates folder
+ 	*/
+	@GetMapping("/login")
+	public String loginPage() {
+    	return "login";  // Tells Spring Boot to load login.html from the templates folder
+	}
+
+	/**
+ 	* This method handles GET requests to display the welcome page.
+ 	* It returns the name of the welcome HTML template.
+ 	*
+ 	* @return The "welcome" template name, directing Spring to look for welcome.html in the templates folder
+ 	*/
+	@GetMapping("/welcome")
+	public String welcomePage() {
+    	return "welcome";  // Tells Spring Boot to load welcome.html from the templates folder
+	}
+
+	/**
+ 	* This method handles GET requests for user logout.
+ 	* It invalidates the current user session and redirects the user to the index page.
+ 	*
+ 	* @param session The current HTTP session to be invalidated
+ 	* @return A redirect to the index page after the session is invalidated
+ 	*/
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+    	session.invalidate();  // Invalidate the current session
+    	return "redirect:/index";  // Redirect to the index page after logout
+	}
+}
+
+
+

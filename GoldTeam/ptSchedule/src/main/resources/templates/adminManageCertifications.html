@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- ALEX -->
+        <!-- Proper VM connection -->
+        <!-- <link rel="stylesheet" href="/css/adminManageCertifications.css"> -->
+        
+        <!-- Local testing only -->
+        <link rel="stylesheet" href="../static/css/adminManageCertifications.css">
+
+        <!-- Proper VM connection -->
+        <!-- <script src="adminManageCertifications.js"></script> -->
+
+        <!-- Local testing only -->
+        <script src="../static/js/adminManageCertifications.js"></script>
+        <title>Administrator Manage Certifications</title>
+    </head>
+    <body>
+        <header>
+            <div class="inner">
+                <div class="logo">
+                    <div>
+                        <img src="/img/header.jpg" alt="logo">
+                    </div>
+                </div>
+                <nav>
+                    <!-- ALEX - Connect the Manage Therapist Certifications href -->
+                    <li><span><a href="">Manage<br>Therapist Certifications</a></span></li> 
+                    <li><span><a href="/api/user/profile">User Profile</a></span></li>
+                    <li><span><a href="/api/auth/logout" class="button">Logout</a></span></li>
+                </nav>
+            </div>
+        </header>
+        <div id="wrapper">
+            <main>
+                <h1>Manage Users</h1>
+            </main>
+
+            <br>
+            <br>
+
+            <div id="therapistCertifications">
+                <table id="therapistCertificationsTable">
+                    <caption>Therapist Certifications</caption>
+                    <thead>
+                        <th>Therapy Type</th>
+                        <th>Certification Name</th>
+                        <th>Certification Definition</th>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+                <br>
+
+                <div id="normalModeButtons">
+                    <button id="editButton" onclick="EditMode()">Edit</button>
+                </div>
+                <div id="editModeButtons" style="display: none;">
+                    <button id="addCertBtn" onclick="AddCertMode()">Add Certification</button>
+                    <button id="deleteCertBtn" onclick="DeleteCertification()">Delete Certification</button>
+                    <button id="clearSelectionBtn" onclick="ClearSelection()">Clear Selection</button>
+                    <button id="finishEditingBtn" onclick="NormalMode()">Finish Editing</button>
+                </div>
+            </div>
+
+            <br>
+
+            <div id="addNewTheraCert" style="display: none;">
+                <form id="addNewUserForm">
+                    <label for="addNewTheraCertTherapyType">Therapy Type:</label>
+                    <input type="text" id="addNewTheraCertTherapyType" name="addNewTheraCertTherapyType" required><br><br>
+                    
+                    <label for="addNewTheraCertName">Certification Name:</label>
+                    <input type="text" id="addNewTheraCertName" name="addNewTheraCertName" required><br><br>
+                    
+                    <label for="addNewTheraCertDef">Certification Definition</label>
+                    <input type="text" id="addNewTheraCertDef" name="addNewTheraCertDef" required><br><br>
+            
+                    <button type="button" id="addNewUserSubmitButton" onclick="AddCertModeSubmit()">Submit</button>
+                    <button type="button" id="addNewUserCancelButton" onclick="EditMode()">Cancel</button>
+                </form>
+            </div>
+            <footer>
+                <p>Gold Team CPT275 | Administrator</p>
+            </footer>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,173 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+header nav li {
+    display: table;
+    height: 80%;
+    float: right;
+    margin-right: 30px;
+    padding-top: 2%;
+}
+
+header nav a {
+    color: #a67b5b;
+}
+
+header nav .button {
+    background-color: #efb963;
+    color: #FFF;
+    padding: 10px 20px;
+    border-radius: 4px;
+    float: right;
+}
+
+    header nav .button:hover {
+        filter: brightness(1.05);
+    }
+
+
+
+header {
+    top: 0px;
+    z-index: 999;
+    color: #efb963;
+    width: 100vw;
+    height: 10vh;
+    border-bottom: solid 1.5px #6b4b32;
+    font-family: 'Poppins';
+}
+
+    header .logo img {
+        margin-left: 50px;
+        height: 70px;
+        margin-top: 5px;
+        float: left;
+    }
+
+main li {
+    display: table;
+    height: 100%;
+    float: left;
+    margin-right: 30px;
+}
+
+header nav li:last-of-type {
+    margin-right: 0;    
+}
+
+header nav span {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+header nav a {
+    color: #a67b5b;
+}
+
+header nav .button {
+    background-color: #efb963;
+    color: #FFF;
+    padding: 10px 20px;
+    border-radius: 4px;
+	margin-top: -15px;
+}
+
+header nav .button:hover {
+    filter: brightness(1.05);
+}
+
+main a {
+    color: white;
+}
+
+main .button {
+    background-color: #efb963;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+main .button:hover {
+    filter: brightness(1.05);
+}
+
+#wrapper {
+    margin-left: 15em;
+    margin-right: 15em;
+}
+
+#center {
+    margin-left: 15em;
+    margin-right: 15em;
+    text-align: center;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    height: 20px;
+    text-align: center;
+    padding: 5px;
+    text-align: center;
+    background: #a67b5b;
+    color: white;
+    font-size: 20px;
+    width: 100%;
+}
+
+h1 {
+    color: #a67b5b;
+}
+
+#basicInfoDiv {
+	margin-top: 20px; /* Space between the button and the form */
+	    border: 1px solid #ccc; /* Optional: border around the form */
+	    padding: 10px; /* Optional: padding for the form */
+	    background-color: #f9f9f9; /* Optional: background color for form */
+	    position: relative;
+}
+
+#changePasswordDiv {
+    margin-top: 20px;
+    padding: 10px; 
+    position: relative;
+    display: flex;
+    flex-direction: column; 
+    gap: 10px; 
+	width: 40%;
+}
+
+#changePasswordForm {
+    display: flex;
+    flex-direction: column; 
+}
+
+#changePasswordForm label {
+    margin-bottom: 5px; 
+}
+
+#changePasswordForm input {
+    margin-bottom: 10px; 
+}
+
+#passwordResetBtn {
+    align-self: flex-start;
+	background-color: #a67b5b;
+	    color: white;
+	    border: none;
+	    padding: 10px 20px;
+	    border-radius: 20px;
+	    font-size: 16px;
+	    text-align: center;
+	    font-weight: bold;
+		width: 60%;
+}
+
+ 

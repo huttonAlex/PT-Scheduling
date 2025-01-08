@@ -1,0 +1,70 @@
+package com.ttc.fitPT.ptSchedule.controller;
+
+import com.ttc.fitPT.ptSchedule.service.AuthService;  // Import AuthService to handle logic of user auth
+import org.springframework.beans.factory.annotation.Autowired;  // Import Spring's Autowired annotation for dependency injection
+import org.springframework.stereotype.Controller;  // Importing the Controller annotation, which tells Spring that this class is a web controller
+import org.springframework.web.bind.annotation.*;  // Importing all annotations related to request mappings
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;  // Used to pass data between redirects
+
+/**
+ * AuthController handles authentication requests.
+ * It listens to routes like "/login" and "/welcome" and forwards requests to the appropriate HTML page
+ * Authentication logic is handled by the AuthService class.
+ */
+@Controller  
+@RequestMapping("/api/auth")  // This specifies the base URL for all routes in this controller. All routes will start with "/api/auth"
+public class AuthController {
+
+    // AuthService is injected into this controller using @Autowired.
+    // This allows the controller to use the authentication logic defined in the service.
+    @Autowired
+    private AuthService authService;
+
+    /**
+     * This method handles POST requests for the login page.
+     * It expects two parameters: "myUsername" and "myPassword", which are passed from the HTML form.
+     * 
+     * @param username   username from the login form
+     * @param password   password from the login form
+     * @param redirectAttributes  Allows us to pass error messages to the login page if authentication fails
+     * @return  A redirect to either the welcome page or back to the login page, depending on whether authentication succeeds
+     */
+    @PostMapping("/login")  // This method responds to POST requests to "/api/auth/login"
+    public String login(@RequestParam("myUsername") String username, 
+                        @RequestParam("myPassword") String password, 
+                        RedirectAttributes redirectAttributes) {
+        // AuthService is used to check if the username and password are correct.
+        boolean isAuthenticated = authService.authenticateUser(username, password);
+
+        // If authentication is successful, redirect to the welcome page.
+        if (isAuthenticated) {
+            return "redirect:/api/auth/welcome";  // Upon successful login, user is redirected to the welcome page
+        } else {
+            // If authentication fails, an error message is added to the RedirectAttributes and the user is sent back to the login page.
+            redirectAttributes.addFlashAttribute("error", "Invalid credentials");
+            return "redirect:/api/auth/login";  // The user is redirected back to the login page to try again
+        }
+    }
+
+    /**
+     * This method handles GET requests to display the login page.
+     * It returns the name of the login HTML template.
+     * 
+     * @return login.html from the templates directory
+     */
+    @GetMapping("/login")  // This method responds to GET requests to "/api/auth/login"
+    public String loginPage() {
+        return "login";  // Tells Spring Boot to look for a file called "login.html" in the templates folder
+    }
+
+    /**
+     * This method handles GET requests to display the welcome page.
+     * It returns the name of the welcome HTML template.
+     * 
+     * @return welcome.html from the templates directory
+     */
+    @GetMapping("/welcome")  // This method responds to GET requests to "/api/auth/welcome"
+    public String welcomePage() {
+        return "welcome";  // Tells Spring Boot to look for a file called "welcome.html" in the templates folder
+    }    
+}

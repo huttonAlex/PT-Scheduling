@@ -1,0 +1,54 @@
+package com.ttc.fitPT.ptSchedule.controller;
+
+import com.ttc.fitPT.ptSchedule.service.AuthService;
+
+import jakarta.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+@Controller  
+@RequestMapping("/api/auth")
+public class AuthController {
+
+	@Autowired
+	private AuthService authService;
+
+	@PostMapping("/login")
+	public String login(@RequestParam("myUsername") String username,
+                    	@RequestParam("myPassword") String password,
+                    	RedirectAttributes redirectAttributes) {
+   	 
+    	// Authenticate user using AuthService
+    	String role = authService.authenticateUser(username, password);
+
+    	// If authentication is successful, redirect to the role controller.
+    	if (role != null) {
+        	return "redirect:/api/roleRedirect/" + role.toLowerCase();
+    	} else {
+        	redirectAttributes.addFlashAttribute("error", "Invalid credentials");
+        	return "redirect:/api/auth/login";
+    	}
+	}
+
+	@GetMapping("/login")
+	public String loginPage() {
+    	return "login";
+	}
+
+	@GetMapping("/welcome")
+	public String welcomePage() {
+    	return "welcome";
+	}
+	
+	//Logout method that invalidates user session and redirects to index
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate(); //Invalidate session
+		return "redirect:/api/auth/index.html";
+	}
+}
+
+

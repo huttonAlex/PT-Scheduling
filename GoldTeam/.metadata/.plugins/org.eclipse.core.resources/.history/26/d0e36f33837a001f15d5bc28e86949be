@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="physical_therapy.css">
+        <title>Administrator Home Page</title>
+    </head>
+    <body>
+        <header>
+            <div class="inner">
+                <div class="logo">
+                    <div>
+                        <img src="header.jpg" alt="logo">
+                    </div>
+                </div>
+                <nav>
+                    <li><span><a href="">Schedule</a></span></li>
+                    <li><span><a href="">User Profile</a></span></li>
+                    <li><span><a href="">Other</a></span></li>
+                    <li><span><a href="">Stuff</a></span></li>
+                    <li><span><a href="index.html" class="button">Logout</a></span></li>
+                    <li>
+                      <div class="accountWidget">
+                        <span>Account:</span><br>
+                        <span>Administrator</span>
+                      </div>
+                    </li>
+                </nav>
+            </div>
+        </header>
+        <div id="wrapper">
+            <main>
+                <h1>Hello you have succesfulliy logged in as a Administrator.</h1>
+            </main>
+            <footer>
+                <p>Gold Team CPT275 | Administrator</p>
+            </footer>
+        </div>
+    </body>
+</html>

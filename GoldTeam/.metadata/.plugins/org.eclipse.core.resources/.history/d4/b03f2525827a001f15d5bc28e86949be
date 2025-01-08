@@ -1,0 +1,19 @@
+package com.ttc.fitPT.ptSchedule.service;
+import org.springframework.stereotype.Service;
+@Service
+public class RoleRedirectService {
+   // Handles redirection based on user role
+   public String redirectBasedOnRole(String role) {
+       switch (role.toUpperCase()) {
+           case "ADMINISTRATOR":
+               return "redirect:/api/auth/administratorHome";
+           case "SCHEDULER":
+               return "redirect:/api/auth/schedulerHome";
+           case "THERAPIST":
+               return "redirect:/api/auth/therapistHome";
+           default:
+               return "redirect:/api/auth/login";  // Default fallback
+       }
+   }
+}
+

@@ -1,0 +1,36 @@
+package com.ttc.fitPT.ptSchedule.service;
+
+// Import necessary classes for database interaction and service annotation
+import org.springframework.beans.factory.annotation.Autowired;  // Used for dependency injection
+import org.springframework.jdbc.core.JdbcTemplate;  // JdbcTemplate simplifies database interactions
+import org.springframework.stereotype.Service;  // Marks this class as a service in Spring
+
+// This annotation marks the class as a Spring service
+// Makes this class eligible for component scanning so Spring will manage this bean's lifecycle.
+@Service
+public class AuthService {
+
+    // Injecting JdbcTemplate into this service using @Autowired. 
+    // JdbcTemplate simplifies interactions with a database using SQL queries.
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    /**
+     * This method authenticates the user based on the provided username and password.
+     * It interacts with the database to check if there is an existing user record that matches the credentials.
+     * 
+     * @param username The username provided by the user trying to log in.
+     * @param password The password provided by the user.
+     * @return true if the user is authenticated, false otherwise.
+     */
+    public boolean authenticateUser(String username, String password) {
+        // SQL query to count the number of users with the matching username and password. I assume we will change this but was used for testing.
+        String sql = "SELECT COUNT(*) FROM LOGIN_INFORMATION WHERE USERNAME = ? AND USER_PASSWORD = ?";
+
+        // Execute the query using JdbcTemplate's queryForObject method.
+        Integer count = jdbcTemplate.queryForObject(sql, Integer.class, username, password);
+
+        // The user is authenticated if the count is 1, meaning exactly one matching user was found.
+        return count != null && count == 1;
+    }
+}

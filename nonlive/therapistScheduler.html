@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/therapistAvailability.css">
+	<link rel="stylesheet" href="css/physical_therapy.css">
+	<title>Therapist Scheduler Page</title>
+	<script src="js/therapistAvailability.js"></script>
+</head>
+<body>
+	<header>
+		<div class="inner">
+			<div class="logo">
+				<div>
+					<img src="images/header.jpg" alt="logo">
+				</div>
+			</div>
+			<nav>
+				<li><span><a href="/api/auth/logout" class="button">Logout</a></span></li>
+				<li><span><a href="">User Profile</a></span></li>
+				<li><span><a href="/api/scheduler/schedule">Schedule</a></span></li>
+			</nav>
+		</div>
+	</header>
+    	<main>
+			<!--<button id="modifyAppointment" type="button">Modify Appointment</button>
+			<button id="scheduleAppointment" type="button">Schedule an Appointment</button>-->
+        	<h1 id="headerTitle">Set Availability</h1>
+        	<br><br>
+			<div class="mainContainer">
+                <div class="dateContainer">	
+			        <div class="calWrapper">
+			            <header>
+			              <p class="current-date"></p>
+			              <div class="icons">
+			                <span id="prev" class="material-symbols-rounded"><</span>
+			                <span id="next" class="material-symbols-rounded">></span>
+			              </div>
+			            </header>
+			            <div class="calendar">
+			              <ul class="weeks">
+			                <li>Sun</li>
+			                <li>Mon</li>
+			                <li>Tue</li>
+			                <li>Wed</li>
+			                <li>Thu</li>
+			                <li>Fri</li>
+			                <li>Sat</li>
+			              </ul>
+			              <ul class="days"></ul>
+			            </div>
+			        </div>
+                </div>
+				
+                <div class="timeSelectContainer">
+					<div class="startTimeContainer">
+						<label for="startTimeSelect">Select Start Time:</label>
+						<br>
+						<select id="startTimeSelect">
+							<option value="">--Select Start Time--</option>
+							<option value="08:00 AM">08:00 AM</option>
+							<option value="09:00 AM">09:00 AM</option>
+							<option value="10:00 AM">10:00 AM</option>
+							<option value="11:00 AM">11:00 AM</option>
+							<option value="12:00 PM">12:00 PM</option>
+							<option value="01:00 PM">01:00 PM</option>
+							<option value="02:00 PM">02:00 PM</option>
+							<option value="03:00 PM">03:00 PM</option>
+							<option value="04:00 PM">04:00 PM</option>
+						</select>
+					</div>
+					<br>
+					<br>
+                    <div class="endTimeContainer">
+						<label for="endTimeSelect">Select End Time:</label>
+						<br>
+						<select id="endTimeSelect">
+							<option value="">--Select End Time--</option>
+						</select>
+					</div>
+					<button id="setAvailabilityButton">Set Availability</button>
+				</div>
+
+				<input type="hidden" id="selectedDates" value=""/>
+			</div>	
+			<div id="availabilityList"></div>
+    	</main>
+	<footer>
+    	<p>Gold Team CPT275 | Therapist</p>
+	</footer>
+</body>
+</html>

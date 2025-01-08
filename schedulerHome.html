@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scheduler Home Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        header nav li {
+            display: table;
+            height: 100%;
+            float: right;
+            margin-right: 30px;
+        }
+
+        header nav a {
+            color: #a67b5b;
+        }
+
+        header nav .button {
+            background-color: #efb963;
+            color: #FFF;
+            padding: 10px 20px;
+            border-radius: 4px;
+            float: right;
+        }
+
+            header nav .button:hover {
+                filter: brightness(1.05);
+            }
+
+        body {
+            display: flex;
+            justify-content: center;
+            background-image: url(bodyslogo.jpg);
+            background-size: 700px;
+            background-repeat: no-repeat;
+            position: fixed;
+            background-position: 6% -9%;
+        }
+
+        header {
+            position: sticky;
+            top: 0px;
+            z-index: 999;
+            color: #efb963;
+            width: 100vw;
+            height: 100px;
+            border-bottom: solid 1.5px #6b4b32;
+            font-family: 'Poppins';
+        }
+
+            header .logo img {
+                height: 100px;
+                margin-top: 5px;
+                float: left;
+            }
+
+        #wrapper {
+            width: 420px;
+            padding: 80px 40px;
+            border: 2px solid #6b4b32;
+            border-radius: 5px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 0 10px var(--text-clr);
+        }
+
+        .user_input {
+            position: relative;
+            height: 50px;
+            width: 100%;
+            margin: 20px 0;
+        }
+
+            .user_input input {
+                width: 100%;
+                height: 100%;
+                background: transparent;
+                border: 1px solid #a67b5b;
+                outline: none;
+                border-radius: 40px;
+                font-size: 18px;
+                color: #6b4b32;
+                padding: 20px;
+                transition: all 0.2s ease-in-out;
+            }
+
+                .user_input input::placeholder {
+                    color: #a67b5b;
+                }
+
+                .user_input input:hover {
+                    box-shadow: 0 0 5px #6b4b32;
+                }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 10;
+            height: 20px;
+            text-align: center;
+            padding: 5px;
+            text-align: center;
+            background: #6b4b32;
+            color: white;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        form {
+            text-align: center;
+            position: fixed;
+            top: 17%;
+            left: 12.5%;
+            width: 250px;
+        }
+
+
+
+        input {
+            height: 45px;
+            width: 100%;
+            background: transparent;
+            box-shadow: 2px 2px 5px #efb963;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--text-clr);
+            border: 0.5px solid #a67b5b;
+            outline: none;
+            border-radius: 10px;
+            text-transform: uppercase;
+            transition: all 0.2s ease-in-out;
+            transform: translateY(-5px);
+        }
+
+            input:hover {
+                background: var(--primary-clr);
+                border: none;
+                color: #efb963;
+            }
+
+            input:active {
+                transform: translate(0px);
+                transform: scale(1.1);
+            }
+
+
+
+        header nav .button {
+            background-color: #efb963;
+            color: #FFF;
+            padding: 10px 20px;
+            border-radius: 4px;
+        }
+
+            header nav .button:hover {
+                filter: brightness(1.05);
+            }
+
+        .accountWidget {
+            position: absolute;
+            display: inline-flex;
+            flex-direction: column;
+            text-align: center;
+            margin-left: 10px;
+            vertical-align: middle;
+            padding-top: 2.5em;
+            line-height: 1;
+            font-weight: bold;
+        }
+
+            .accountWidget span {
+                margin: -8px 0;
+            }
+
+        .row {
+            display: flex;
+        }
+
+        .column {
+            flex: 50%;
+        }
+
+        h1 {
+            font-family: 'Garamond',cursive;
+            color: #6b4b32;
+            font-size: 75px;
+            font-weight: 100;
+        }
+    </style>
+</head>
+<div>
+    <header>
+        <div class="logo">
+            <img src="header.jpg" alt="logo">
+        </div>
+        <nav>
+            <li class="accountWidget">
+                Account:<br>
+                Scheduler
+            </li>
+            <li><span><a href="index.html" class="button">Logout</a></span></li>
+            <li><span><a href="">User Profile</a></span></li>
+            <li><span><a href="scheduler_schedule.html">Schedule</a></span></li>
+        </nav>
+    </header>
+    <div>
+        <div class="row">
+            <div class="column">
+            </div>
+            <div class="column">
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <h1>Welcome, "name"</h1>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>Gold Team CPT275 | Scheduler</p>
+    </footer>
+</div>
+</html>

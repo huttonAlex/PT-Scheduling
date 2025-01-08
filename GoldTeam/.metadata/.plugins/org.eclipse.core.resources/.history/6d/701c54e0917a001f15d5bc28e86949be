@@ -1,0 +1,37 @@
+package com.ttc.fitPT.ptSchedule.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Service;
+
+/**
+ * AuthService handles the authentication logic for the application.
+ * It interacts with the database to verify user credentials and retrieve their role.
+ */
+@Service
+public class AuthService {
+
+	// JdbcTemplate is used to execute SQL queries against the database
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+
+	/**
+ 	* This method authenticates the user by executing a SQL query.
+ 	* It uses the provided username and password to check if the user exists in the database
+ 	* and returns the user's role if authentication is successful.
+ 	*
+ 	* @param username The username entered by the user
+ 	* @param password The password entered by the user
+ 	* @return The role of the authenticated user as a String, or null if authentication fails
+ 	*/
+	public String authenticateUser(String username, String password) {
+    	// SQL query that calls the FOUND_PERSON and FOUND_TYPE functions to authenticate the user
+    	String sql = "SELECT FOUND_TYPE(FOUND_PERSON(?, ?))";
+   	 
+    	// Execute the query and return the user's role, or null if no user is found
+    	return jdbcTemplate.queryForObject(sql, String.class, username, password);
+	}
+}
+
+
+

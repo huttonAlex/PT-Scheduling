@@ -1,0 +1,220 @@
+*
+
+#selectorsContainer{
+	display: grid;
+	align-content: space-between;
+	margin-left: 3em;
+	margin-right: 3em;
+	grid-template-columns: 1fr 1fr 1fr;
+	
+}
+
+.alignLeftBox{
+	grid-column: 1;
+}
+
+.alignMiddleBox{
+	grid-column: 2;
+}
+
+.alignRightBox{
+	grid-column: 3;
+	margin-left: 0;
+}
+
+.calWrapper {
+    width: 600px; 
+    margin: 0; /* Align to the left */
+    padding: 5px; 
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    position: relative;
+    /*left: 10px;
+    top: 5px;*/
+}
+
+
+.calWrapper header {
+    border-bottom: solid 10px #a67b5b; /* Separate border for the calendar header */
+    padding-bottom: 10px; /* Add some padding for separation */
+    margin-bottom: 20px;
+    width: 600px /* Space below the calendar header */
+}
+
+
+.calWrapper .current-date {
+    font-size: 3.45rem;
+    font-weight: 500;
+    margin-left: 0; /* Ensure it aligns with the left edge */
+}
+
+.calWrapper .icons {
+    display: flex;
+}
+
+.calWrapper .icons span {
+    height: 38px;
+    width: 38px;
+    margin: 0 1px;
+    cursor: pointer;
+    color: #878787;
+    text-align: center;
+    line-height: 38px;
+    font-size: 1.9rem;
+    user-select: none;
+    border-radius: 50%;
+}
+
+.calWrapper .icons span:last-child {
+    margin-right: -10px;
+}
+
+.calWrapper .icons span:hover {
+    background: #f2f2f2;
+}
+
+/* Calendar styles */
+.calendar {
+    padding: 10px;
+}
+
+.calendar ul {
+    display: flex;
+    justify-content: space-between; /* Ensure even spacing between items */
+    list-style: none;
+    text-align: center;
+}
+
+.calendar .weeks {
+    display: grid; /* Use grid layout for the week header */
+    grid-template-columns: repeat(7, 1fr); /* Create 7 equal columns */
+    margin-bottom: 10px; /* Add space below the week header */
+    font-weight: 500; /* Make headers bold */
+}
+
+.calendar .days {
+    display: grid; /* Use grid layout for the days */
+    grid-template-columns: repeat(7, 1fr); /* Create 7 equal columns for the days */
+    gap: 10px; /* Add space between each day */
+    margin-bottom: 20px; /* Space below the days */
+}
+
+.calendar li {
+    color: #333;
+    font-size: 1.07rem;
+}
+
+.calendar .weeks li,
+.calendar .days li {
+    z-index: 1;
+    cursor: pointer;
+    position: relative;
+    height: 60px; /* Set a fixed height for each cell */
+    display: flex; /* Center content within the cell */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+
+.calWrapper.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.days li.inactive {
+    color: #aaa;
+}
+
+.days li.active {
+    color: #fff;
+}
+
+.days li::before {
+    position: absolute;
+    content: "";
+    left: 50%;
+    top: 50%;
+    height: 40px;
+    width: 40px;
+    z-index: -1;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.days li.active::before {
+    background: #9B59B6;
+}
+
+.days li:not(.active):hover::before {
+    background: #f2f2f2;
+}
+
+.days li.selected {
+    background-color: #efb963;  /* Choose any color for the selected date */
+    color: #fff;                /* Text color for the selected date */
+    border-radius: 50%;         /* Makes the date appear as a circle */
+    width: 40px;                /* Adjust to match the width of the "active" class */
+    height: 40px;               /* Adjust to match the height of the "active" class */
+    line-height: 40px;          /* Center the text vertically */
+    text-align: center;         /* Center the text horizontally */
+    display: inline-block;      /* Ensure it's treated like a block element */
+}
+
+.therapy-type-container {
+    display: flex;
+    flex-direction: column; /* Stack label and select vertically */ /* Aligns the items to the left */
+    margin-left: 11px; 
+}
+
+.therapy-type-container label {
+    margin-bottom: 5px; 
+}
+
+.therapy-type-container select {
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 100%; /* Makes the select dropdown take full width */
+    max-width: 300px; /* Limits the width of the dropdown */
+}
+
+.timeContainer {
+    display: flex;
+    flex-direction: column; /* Stack label and dropdown vertically */
+    justify-content: center;
+	max-width: 300px; /* Center vertically if needed */
+}
+
+#timeSelect {
+    margin-top: 10px; /* Space between label and dropdown */
+    padding: 5px; /* Add padding for better appearance */
+    font-size: 14px;
+	margin-bottom: 80px; /* Adjust font size */
+}
+
+
+
+form.appointmentForm {
+	
+   position: relative;/* Adds some space between the form and other elements *//* Adds padding for spacing inside the form */
+   margin-left: 0;
+   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Optional: shadow to make it stand out */
+   text-align: left;
+}
+
+#therapistsDisplay { 
+	border: 1px solid #ccc; 
+	padding: 10px; 
+	width: 300px; 
+	height: 100px; 
+	overflow-y: auto; 
+	background-color: #f9f9f9; 
+	margin-top: 10px; 
+}
+
+#therapistsDropdown { 
+	margin-top: 5px; 
+	width: 300px; 
+	padding: 5px; 
+}
+

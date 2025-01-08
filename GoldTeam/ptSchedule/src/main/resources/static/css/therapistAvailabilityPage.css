@@ -1,0 +1,786 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+header nav li {
+    display: table;
+    height: 80%;
+    float: right;
+    margin-right: 30px;
+    padding-top: 2%;
+}
+
+header nav a {
+    color: #a67b5b;
+}
+
+header nav .button {
+    background-color: #efb963;
+    color: #FFF;
+    padding: 10px 20px;
+    border-radius: 4px;
+    float: right;
+}
+
+    header nav .button:hover {
+        filter: brightness(1.05);
+    }
+
+
+
+header {
+    top: 0px;
+    z-index: 999;
+    color: #efb963;
+    width: 100vw;
+    height: 10vh;
+    border-bottom: solid 1.5px #6b4b32;
+    font-family: 'Poppins';
+}
+
+    header .logo img {
+        margin-left: 50px;
+        height: 70px;
+        margin-top: 5px;
+        float: left;
+    }
+
+
+main li {
+    display: table;
+    height: 100%;
+    float: left;
+    margin-right: 30px;
+}
+
+header nav li:last-of-type {
+    margin-right: 0;    
+}
+
+header nav span {
+    display: table-cell;
+    vertical-align: middle;
+	margin-top: -10px;
+}
+
+header nav a {
+    color: #a67b5b;
+}
+
+header nav .button {
+    background-color: #efb963;
+    color: #FFF;
+    padding: 10px 20px;
+    border-radius: 4px;
+	margin-top: -15px;
+}
+
+header nav .button:hover {
+    filter: brightness(1.05);
+}
+
+main a {
+    color: white;
+}
+
+main .button {
+    background-color: #efb963;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+main .button:hover {
+    filter: brightness(1.05);
+}
+
+#wrapper {
+    margin-left: 15em;
+    margin-right: 15em;
+}
+
+#center {
+    margin-left: 15em;
+    margin-right: 15em;
+    text-align: center;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    height: 20px;
+    text-align: center;
+    padding: 5px;
+    text-align: center;
+    background: #a67b5b;
+    color: white;
+    font-size: 20px;
+    width: 100%;
+}
+
+h1 {
+    font-family: 'Garamond',cursive;
+    color: #6b4b32;
+    font-size: 3vw;
+    font-weight: 100;
+    text-align: center;
+}
+
+
+.modifyAvailContainer {
+    display: flex; /* Use Flexbox for layout */
+    flex-direction: row; /* Arrange children in a row (side by side) */
+    justify-content: flex-start; /* Align children to the start of the container */
+    gap: 20px; /* Add space between the form and appointmentReturnContainer */
+    margin: 0 auto; /* Center the entire container */
+    max-width: 1200px; /* Set a maximum width */
+}
+
+.dateContainer {
+    width: 50%;
+}
+
+.timeSelectContainer {
+   
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+
+.startTimeContainer, .endTimeContainer {
+    width: 50%; /* Each container takes half the available width */
+}
+
+
+
+.calWrapper {
+    width: 100%;
+    margin-top: -5%; 
+    margin-left: 0; 
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    position: relative;
+    height: auto; /* Make height dynamic to fit all rows */
+    max-height: none; /* Remove any max-height to prevent cutting off extra weeks */
+}
+
+
+.calWrapper header, .overviewCalWrapper header {
+    position: relative; /* Position elements inside header relative to this */
+    border-bottom: solid 10px #a67b5b; /* Keep the existing border style */
+    width: 100%; /* Make sure it takes the full width of the parent container */
+    padding: 10px; /* Add padding, but make sure it's included in total width */
+    box-sizing: border-box; /* Include padding and border in the element's width calculation */
+    overflow: hidden; /* Prevent any overflow that could extend past the container */
+}
+
+
+.calWrapper .current-date {
+    font-size: 3.45rem;
+    font-weight: 500;
+    margin-left: 0; /* Ensure it aligns with the left edge */
+}
+
+.calWrapper .icons, .overviewCalWrapper .icons {
+    position: absolute; /* Position the icons absolutely */
+    top: 10px; /* Adjust the top spacing as needed */
+    right: 10px; /* Push the icons to the right corner */
+    display: flex; /* Keep the icons side-by-side */
+    gap: 5px; /* Adjust the spacing between icons */
+}
+
+.calWrapper .icons span, .overviewCalWrapper .icons span {
+    height: 38px;
+    width: 38px;
+    cursor: pointer;
+    color: #878787;
+    text-align: center;
+    line-height: 38px;
+    font-size: 1.9rem;
+    user-select: none;
+    border-radius: 50%;
+    background: #f9f9f9; /* Optional: add a subtle background */
+}
+.calWrapper .icons span:last-child {
+    margin-right: -10px;
+}
+
+.calWrapper .icons span:hover {
+    background: #f2f2f2;
+}
+
+/* Calendar styles */
+.calendar {
+    padding: 8px;
+    height: auto; /* Allow the calendar to grow dynamically */
+}
+
+.calendar ul {
+    display: flex;
+    justify-content: space-between; /* Ensure even spacing between items */
+    list-style: none;
+    text-align: center;
+}
+
+.calendar .weeks {
+    display: grid; /* Use grid layout for the week header */
+    grid-template-columns: repeat(7, 1fr); /* Create 7 equal columns */
+    margin-bottom: 10px; /* Add space below the week header */
+    font-weight: 500; /* Make headers bold */
+}
+
+.calendar .days {
+    display: grid; /* Use grid to organize days */
+    grid-template-columns: repeat(7, 1fr); /* Seven columns for the days of the week */
+    grid-auto-rows: minmax(40px, auto); /* Set minimum height for each day but allow to grow */
+    gap: 10px; /* Space between each day */
+}
+
+.calendar li {
+    color: #333;
+    font-size: 1.07rem;
+}
+
+.calendar .weeks li,
+.calendar .days li {
+    z-index: 1;
+    cursor: pointer;
+    position: relative;
+    height: 60px; /* Set a fixed height for each cell */
+    display: flex; /* Center content within the cell */
+    align-items: center; /* Center vertically */
+    justify-content: center;
+    width: 40px; /* Center horizontally */
+}
+
+.calWrapper.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.days li.inactive {
+    color: #aaa;
+}
+
+.days li.active {
+    color: #000;
+}
+
+.days li::before {
+    position: absolute;
+    content: "";
+    left: 50%;
+    top: 50%;
+    height: 40px;
+    width: 40px;
+    z-index: -1;
+    
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.days li.active::before {
+    
+    border-radius: 0%;
+    border-bottom: solid;
+    color: #a67b5b;
+}
+
+.days li:not(.active):hover::before {
+    background: #f2f2f2;
+}
+
+.days li.selected {
+    background-color: #efb963;  /* Choose any color for the selected date */
+    color: #000;                /* Text color for the selected date */
+    border-radius: 50%;         /* Makes the date appear as a circle */
+    width: 40px;                /* Adjust to match the width of the "active" class */
+    height: 40px;               /* Adjust to match the height of the "active" class */
+    line-height: 40px;          /* Center the text vertically */
+    text-align: center;         /* Center the text horizontally */
+    display: inline-block; 
+    box-sizing: border-box;     /* Ensure it's treated like a block element */
+}
+
+.therapy-type-container {
+    display: flex;
+    flex-direction: column; /* Stack label and select vertically */ /* Aligns the items to the left */
+    margin-left: 11px; 
+}
+
+.therapy-type-container label {
+    margin-bottom: 5px; 
+}
+
+.therapy-type-container select {
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 100%; /* Makes the select dropdown take full width */
+    max-width: 300px; /* Limits the width of the dropdown */
+}
+
+.timeContainer {
+    display: flex;
+    flex-direction: column; /* Stack label and dropdown vertically */
+    justify-content: center;
+	max-width: 100%; /* Center vertically if needed */
+}
+
+#timeSelect {
+    margin-top: 10px; /* Space between label and dropdown */
+    padding: 5px; /* Add padding for better appearance */
+    font-size: 14px;
+	margin-bottom: 80px; /* Adjust font size */
+}
+
+
+
+form.appointmentForm {
+	
+   position: relative;/* Adds some space between the form and other elements *//* Adds padding for spacing inside the form */
+   margin-left: 0;
+   /* Optional: shadow to make it stand out */
+   text-align: left;
+    width: 100%;
+    margin-bottom: 10%; 
+}
+
+form.modifyForm {
+    width: 100%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    display: block; /* Ensure the form is block-level */
+}
+
+form.returnForm {
+    width: 100%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    display: block; /* Ensure the form is block-level */
+}
+ 
+
+#therapistsDisplay { 
+	border: 1px solid #ccc; 
+	padding: 10px; 
+	max-width: 100%;
+	height: 100px; 
+	overflow-y: auto; 
+	background-color: #f9f9f9; 
+	margin-top: 10px; 
+}
+
+#therapistsDropdown { 
+	margin-top: 5px; 
+	width: 300px; 
+	padding: 5px; 
+}
+
+#therapyType, #dateOfApt, #timeOfApt ,#therapistSelect{
+    display: none; /* This will hide the elements completely */
+}
+
+@media (max-width: 768px) { /* You can adjust 768px based on your needs */
+    #selectorsContainer {
+        flex-direction: column; /* Stack the boxes vertically */
+        gap: 20px; /* Add more space between them when stacked */
+    }
+    
+    .alignLeftBox, .alignMiddleBox, .alignRightBox {
+        width: 100%; /* Ensure full width when stacked */
+        margin: 0 auto; /* Center the boxes */
+    }
+
+    footer {
+        font-size: 1rem; /* Decrease the font size */
+        padding: 3px; /* Reduce padding for smaller screens */
+        height: 15px; /* Reduce height for smaller screens */
+    }
+}
+
+select {
+    height: 45px;
+    width: 100%;
+    background: transparent;
+    box-shadow: 2px 2px 5px #efb963;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+    border: 0.5px solid #a67b5b;
+    outline: none;
+    border-radius: 10px;
+    
+    transition: all 0.2s ease-in-out;
+    transform: translateY(-5px);
+    margin-top: 5px;
+    padding-left: 5px; /* Adjust padding for alignment */
+}
+
+/* Optional hover and active states for select to match input behavior */
+select:hover {
+    background: var(--primary-clr);
+    border: none;
+    color: black;
+}
+
+select:active {
+    transform: translate(0px);
+    transform: scale(1.1);
+}
+
+label{
+    font-weight: bold;  
+}
+
+#setAvailabilityButton {
+    background-color: #a67b5b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 5%;
+    width: 30%;
+}
+
+#cancelAvailabilityButton {
+    background-color: #B10000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 5%;
+    width: 30%;
+}
+
+.day-selection {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .day-box {
+    flex: 1;                      /* Make each day-box take up equal space */
+    text-align: center;           /* Center text inside the box */
+    padding: 20px;                /* Add some padding for visual comfort */
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    }
+  
+  .day-box.selected {
+    background-color: #efb963;
+    color: white;
+    border-color: #efb963;
+  }
+
+.workingInfo{
+    background-color: #000;
+}
+
+.workingInfo {
+    order: 1; /* Ensures it's at the top */
+    padding: 10px;
+    background-color: #f3f3f3; /* Optional styling */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+#dayButtonContainer {
+    display: flex;            /* Use Flexbox for layout */
+    flex-direction: row;   /* Stack children vertically */
+    align-items: center;      /* Center horizontally */
+    justify-content: center;  /* Center vertically */
+    margin-top: 10px;         /* Optional: Add space at the top */
+    width: 100%;              /* Make sure it takes the available width */
+    gap: 20px;  
+    order: 2;              /* Add space between the h3 and day-box divs */
+}
+
+.defaultTimeSelectContainer {
+    order: 3; /* Position below dayButtonContainer */
+    margin-top: 1%;
+    width: 80%;
+    margin-left: 10%;
+}
+
+
+.defaultAvailContainer {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.overviewCalWrapper {
+    width: 100%;
+    margin-top: -5%; 
+    margin-left: 0; 
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    position: relative;
+    height: auto; /* Make height dynamic to fit all rows */
+    max-height: none
+}
+
+
+.overviewCalWrapper .current-date {
+    font-size: 3.45rem;
+    font-weight: 500;
+    margin-left: 0;
+}
+
+/* Possible DELETE*/
+.overviewCalWrapper .calendar {
+    padding: 8px;
+    height: auto;
+}
+
+.overviewCalWrapper .calendar ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    text-align: center;
+}
+
+
+
+
+
+#overviewCalendar .overviewDays,#overviewCalendar .weeks  {
+    display: grid; /* Use grid to organize days */
+    grid-template-columns: repeat(7, 1fr); /* Seven columns for the days of the week */
+    grid-auto-rows: minmax(4%, auto); /* Set minimum height for each day but allow to grow */
+    gap: 10px; /* Space between each day */
+	padding:0;
+	margin:0;
+	box-sizing:border-box;
+}
+
+
+#overviewCalendar .overviewDays li,#overviewCalendar .weeks li {
+    width: 100%; /* Let it take the full width of the container */
+    height: 80px; /* Maintain a fixed height if needed, or change to fit your layout */
+    display: flex; /* Center content horizontally and vertically */
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
+#overviewCalendarContainer {
+    width: 33%;
+}
+
+#overviewReturnContainer
+{
+    display: none;
+    max-height: 800px; /* Adjust as needed */
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    width: 33%;
+}
+
+#overviewInfoContainer {
+    width: 33%;
+    
+}
+
+.appointment-day {
+    background-color: #efb963; /* Highlight color */
+    border-radius: 25%;
+    color: white;
+}
+
+.therapist-container {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 2px solid #00796b;
+    border-radius: 8px;
+    background-color: #e0f7fa;
+}
+
+.therapist-container h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #004d40;
+}
+
+#overviewReturnContainer {
+    display: none;
+    max-height: 300px; /* Adjust as needed */
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.therapist-group {
+    margin-bottom: 15px; /* Space between groups */
+}
+
+/* Underline for Default Days */
+.default-day {
+    text-decoration: none;
+    border-bottom: 3px solid #a67b5b;
+    
+}
+
+/* Square Border for Modified Days */
+.modified-day {
+    background-color: #efb963; /* Set the background color to orange */
+    
+    border: 1px solid #000; /* Keep the existing border if needed */
+    border-radius: 0; /* No rounded corners to form a square */
+}
+
+#rightContainer {
+    display: flex; /* Use Flexbox for layout */
+    flex-direction: column; /* Arrange children in a column */
+    gap: 20px; /* Add space between dateInfoDisplay and timeSelectContainer */
+    width: 100%; /* Make sure it takes the available width */
+}
+
+.date-info-box {
+    background-color: #ffffff; /* White background for each date box */
+    border: 1px solid #a67b5b; /* Border color to match other elements */
+    border-radius: 5px; /* Rounded corners for each box */
+    padding: 10px; /* Padding inside each box */
+    margin-bottom: 10px; /* Space between each date box */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for better visual effect */
+}
+
+.dateInfoDisplay {
+    
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+#buttonContainer {
+    
+}
+
+.returnAppointmentsSelector {
+	display: block; /* Behaves like a block element similar to inputs */
+	   width: 100%; /* Match the width of other input fields */
+	   height: 45px; /* Match the height of the input fields */
+	   background: transparent; /* Set background to match input fields */
+	   box-shadow: 2px 2px 5px #efb963; /* Add the same box shadow as the inputs */
+	   padding: 6px; /* Padding for internal spacing */
+	   font-size: 16px; /* Match the font size of the input fields */
+	   font-weight: 600; /* Match the font weight */
+	   color: black; /* Match the text color */
+	   border: 0.5px solid #a67b5b; /* Use the same border styling */
+	   outline: none; /* Remove the default outline */
+	   border-radius: 10px; /* Rounded corners like the input fields */
+	   box-sizing: border-box; /* Include padding and border in width and height calculation */
+	   margin-top: 10px; /* Space between each appointment div */
+	   cursor: pointer; /* Make it look interactive like an input */
+	   transition: transform 0.2s ease-in-out; /* Smooth effect on interaction */
+	   text-align: center;
+}
+
+.returnAppointmentsSelector.selected {
+    background-color: #a7ffeb;
+    border-color: #00796b;
+}
+
+.returnAppointmentsSelector:hover {
+    transform: scale(1.02); 
+    background: var(--primary-clr);
+	background-color: #f0f0f0; 
+}
+
+#appointmentOverviewContainer {
+    margin-left: 3%; 
+    margin-right: 3%; 
+    gap: 20px;
+}
+
+#appointmentDetails {
+    height: auto; /* Allow height to adjust as needed for content */
+    width: 100%;
+    background: transparent;
+    box-shadow: 2px 2px 5px #efb963;
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+    border: 0.5px solid #a67b5b;
+    outline: none;
+    border-radius: 10px;
+    padding: 10px; /* Add padding to create space inside the div */
+    box-sizing: border-box; /* Include padding and border in the element's width and height calculation */
+    transition: all 0.2s ease-in-out;
+    transform: translateY(-5px);
+    margin-top: 1%;
+}
+
+button#viewDefaultSched,
+button#viewModifyAvail,
+button#viewAppointments
+{
+    background-color: #a67b5b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+
+}
+
+#button-container {
+    display: flex;
+    justify-content: center; /* Centers buttons horizontally */
+    gap: 20px; /* Space between the buttons */
+    width: 100%; /* Ensures it spans the width of its container */
+    margin-left:2%;
+	
+}
+
+#setDefaultAvailabilityButton{
+    background-color: #a67b5b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    margin-left: 40%;
+}
+
+li {
+    font-size: 16.5px;   /* Makes the text larger */
+    font-weight: 500;
+}
+

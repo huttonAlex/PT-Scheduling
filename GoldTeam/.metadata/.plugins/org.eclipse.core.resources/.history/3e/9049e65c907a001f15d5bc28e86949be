@@ -1,0 +1,22 @@
+package com.ttc.fitPT.ptSchedule.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class HomeController {
+
+	// Mapping for index.html
+	@GetMapping("/index")
+	public String indexPage() {
+    	return "index";  // Spring will look for index.html in templates
+	}
+
+	@GetMapping("/")
+	public String homePage() {
+    	return "index";
+	}
+}
+
+
+

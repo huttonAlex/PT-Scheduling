@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/physical_therapy.css">
+	<title>User Profile</title>
+	<style>
+		table, th, td
+		{
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+
+		th, td
+		{
+			padding: 0.2em;
+		}
+	</style>
+	<script src="js/userProfile.js">
+	</script>
+</head>
+<body>
+	<header>
+		<div class="inner">
+			<div class="logo">
+				<div>
+					<img src="images/header.jpg" alt="logo">
+				</div>
+			</div>
+			<nav>
+				<li><span><a href="/api/auth/logout" class="button">Logout</a></span></li>
+				<li><span><a href="">User Profile</a></span></li>
+				<li><span><a href="/api/scheduler/schedule">Schedule</a></span></li>
+			</nav>
+		</div>
+	</header>
+	<div id="wrapper">
+    	<main>
+        	<h1>User Profile</h1>
+			<div id="basicInfoDiv">
+
+                <h3 id="nameOfUser">First & Last Name</h3>
+
+				<h3>CONTACT INFO</h3>
+                <p id="phoneNumber">Phone #: </p>
+                <p id="email">Email: </p>
+
+				<h3>WORK INFORMATION</h3>
+				<p id="userId">User ID: </p>
+				<p id="roleId">Role ID: </p>
+		    </div>
+            
+            <div id="certificationsDiv">
+            </div>
+
+            <script>
+				LoadUserData();
+            </script>
+    	</main>
+	</div>
+	
+	<footer>
+    	<p>Gold Team CPT275 | Scheduler</p>
+	</footer>
+</body>
+</html>

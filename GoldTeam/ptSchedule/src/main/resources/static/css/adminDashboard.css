@@ -1,0 +1,486 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+header nav li {
+    display: table;
+    height: 80%;
+    float: right;
+    margin-right: 30px;
+    padding-top: 2%;
+}
+
+header nav a {
+    color: #a67b5b;
+}
+
+header nav .button {
+    background-color: #efb963;
+    color: #FFF;
+    padding: 10px 20px;
+    border-radius: 4px;
+    float: right;
+}
+
+    header nav .button:hover {
+        filter: brightness(1.05);
+    }
+
+
+
+header {
+    top: 0px;
+    z-index: 999;
+    color: #efb963;
+    width: 100vw;
+    height: 10vh;
+    border-bottom: solid 1.5px #6b4b32;
+    font-family: 'Poppins';
+}
+
+    header .logo img {
+        margin-left: 50px;
+        height: 70px;
+        margin-top: 5px;
+        float: left;
+    }
+
+h1{
+    margin-top: 1%;
+    text-align: center;
+}
+main li {
+    display: table;
+    height: 100%;
+    float: left;
+    margin-right: 30px;
+}
+
+header nav li:last-of-type {
+    margin-right: 10px;    
+}
+
+header nav span {
+    display: table-cell;
+    vertical-align: middle;
+	margin-top: -10px;
+}
+
+header nav a {
+    color: #a67b5b;
+}
+
+header nav .button {
+    background-color: #efb963;
+    color: #FFF;
+    padding: 10px 20px;
+    border-radius: 4px;
+	margin-top: -15px;
+}
+
+header nav .button:hover {
+    filter: brightness(1.05);
+}
+
+main a {
+    color: white;
+}
+
+main .button {
+    background-color: #efb963;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+main .button:hover {
+    filter: brightness(1.05);
+}
+
+#wrapper {
+    margin-left: 15em;
+    margin-right: 15em;
+    height: 100%;
+    overflow: auto; /* Allow scrolling if content exceeds page height */
+}
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: auto; /* Ensure that the entire page is scrollable */
+}
+
+#center {
+    margin-left: 15em;
+    margin-right: 15em;
+    text-align: center;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    height: 20px;
+    text-align: center;
+    padding: 5px;
+    text-align: center;
+    background: #a67b5b;
+    color: white;
+    font-size: 20px;
+    width: 100%;
+}
+
+h1 {
+    color: #a67b5b;
+}
+
+.accountWidget {
+    position: absolute;
+    display: inline-flex;
+    flex-direction: column;
+    text-align: center;
+    margin-left: 10px;
+    vertical-align: middle;
+    padding-top: 2.5em;
+    line-height: 1;
+    font-weight: bold;
+}
+.accountWidget span {
+    margin: -8px 0;
+}
+
+#filterbuttons {
+    background-color: #a67b5b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#buttonBox{
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    gap: 10px;
+}
+
+#showDeleteUsers, #showManageUsers, #showManageCerts,#addCertButton,#addNewUsersBtn,
+#addTherapistCertButton, #saveChangesBtn,#addCertsToTherapist, #addNewUserSubmitButton,#doneButton1,#doneButton2,#saveCertBtn  {
+    background-color: #a67b5b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 1%;
+}
+
+
+#editUserBtn {
+    background-color: #a67b5b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#editUserSection {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: flex-start; /* Align items to the start (left) */
+}
+
+/* #editUserForm {
+    margin-top: 20px; 
+    border: 1px solid #ccc; 
+    padding: 10px; 
+    background-color: #f9f9f9; 
+    display: none;
+    position: relative;
+}*/
+
+#editUserForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Add spacing between each input group */
+    max-width: 400px; /* Set a maximum width for the form */
+    margin: 0 auto; /* Center the form if needed */
+	margin-top: 20px; 
+	border: 1px solid #ccc; 
+	padding: 10px; 
+	background-color: #f9f9f9; 
+}
+
+.input-group {
+    display: flex;
+    align-items: left;
+    gap: 10px; /* Space between label and input */
+}
+
+.input-group label {
+    width: 100px; /* Set a fixed width to align all labels */
+    text-align: right; /* Align text to the right for consistency */
+}
+
+.input-group input {
+    flex: 1; /* Make the input take up remaining space */
+    padding: 8px; /* Add padding for a better look */
+    border: 1px solid #ccc; /* Add border styling */
+    border-radius: 4px; /* Round corners slightly */
+}
+
+
+
+#findPersonBtn {
+    background-color: #a67b5b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.hide
+{
+    display: none;
+}
+
+.selected-row {
+    background-color: #f7d8a8; /* Light blue color when a row is selected */
+    border: 3px solid #000000; /* Thicker border with a specific color */
+}
+
+.selected-delete-row, .selected-cert-row{
+    background-color: #FF474C; /* Highlight color for selected rows */
+    border: 2px solid black; /* Optional: thicker border to indicate selection */
+}
+
+#personTypeHeader select, #deletePersonTypeHeader select {
+    background-color: #f7d8a8; /* Background color of dropdown */
+    color: #000000; /* Text color */
+    border: 1px solid #a67b5b; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    position: relative; /* Allows positioning the element relative to its normal position */
+    left: 60%; /* Move it to the right by 50 pixels, adjust as needed */
+}
+
+.scrolldown {
+    overflow-y: auto;
+    max-height: 200px; /* Adjust height as needed for the number of rows you want to show */
+}
+
+#deleteUsersButton,#deleteCertsButton, #removeCertsButton, 
+#cancelEditBtn, #cancelAddCerts,
+#addNewUserCancelButton,#cancelCertBtn {
+    background-color: #FF474C;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+	margin-bottom: 1%;
+    
+}
+
+#cancelCertSelect,#cancelUserSelection,
+#cancelDeleteUserSelection{
+	background-color: #808080;
+	    color: white;
+	    border: none;
+	    padding: 10px 20px;
+	    border-radius: 20px;
+	    font-size: 16px;
+	    text-align: center;
+	    font-weight: bold;
+		margin-bottom: 1%;
+}
+
+.custom-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f8d7da;  /* Light red background */
+    color: #721c24;              /* Dark red text color */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 1000;
+    display: none;  /* Initially hidden */
+    width: 300px;
+    max-width: 80%;
+}
+
+.custom-alert button {
+    margin: 10px 5px 0 5px;  /* Spacing for buttons */
+    padding: 8px 16px;
+    background-color: #721c24;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.custom-alert button:hover {
+    background-color: #a94442;
+}
+
+.custom-alert2 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #90ee90;  
+    color: white;              
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 1000;
+    display: none;  
+    width: 300px;
+    max-width: 80%;
+}
+
+.custom-alert2 button {
+    margin: 10px 5px 0 5px;  /* Spacing for buttons */
+    padding: 8px 16px;
+    background-color: white;
+    color: #008000;
+    border: solid 1px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+#alertButtonsContainer {
+    display: flex;
+    justify-content: center;
+     /* Add spacing between text and buttons */
+}
+
+
+
+#viewUserContainer{
+    margin-top: 20px; /* Space between the button and the form */
+    border: 1px solid #ccc; /* Optional: border around the form */
+    padding: 10px; /* Optional: padding for the form */
+    background-color: #f9f9f9; /* Optional: background color for form */
+    display: none;
+    position: relative;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px; /* Space between tables */
+}
+
+thead {
+    background-color: #efb963; 
+    color: black;
+    position: sticky;
+    top: 0;
+    z-index: 2; /* Ensures header stays above scrolling content */
+}
+
+th, td {
+    padding: 8px;
+    border: 1px solid #a67b5b;
+    text-align: left;
+}
+
+/* Specific IDs for each table header styling */
+#personsTable thead, #deleteTable thead, #certsTable thead {
+    background-color: #efb963;
+    color: black;
+}
+
+#personsTable thead th, #deleteTable thead th, #certsTable thead th,
+#personsTable tbody td, #deleteTable tbody td, #certsTable tbody td {
+    padding: 8px;
+    box-sizing: border-box;
+    text-align: left;
+    border: 1px solid #a67b5b; 
+}
+
+/* Scroll container styling for each table container */
+.scrollContainer {
+    max-height: 400px; /* Adjust to control the visible height */
+    overflow-y: auto;
+    width: 100%;
+}
+
+.selected-cert-row {
+    background-color: #f7d8a8; /* Light blue color when a row is selected */
+    border: 3px solid #000000;
+}
+
+#editUserForm label {
+    display: inline-block;
+    margin-right: 5px; 
+    vertical-align: middle; 
+}
+
+
+.rating-container {
+    display: inline-flex;  /* Makes sure both child elements appear in the same line */
+    align-items: center;   /* Aligns the label and stars vertically in the middle */
+}
+
+.rating-container label {
+    margin-right: 5px;     /* Space between label and stars */
+    vertical-align: middle;
+}
+
+#editRatingStars {
+    font-size: 1.2em;      /* Adjusts the size of the stars if needed */       /* Gold color for the stars */
+    vertical-align: middle;
+}
+
+ #deleteButtonsContainer {
+  display: flex;
+  gap: 10px; /* Adds spacing between the buttons */
+  align-items: center; /* Align buttons vertically centered */
+  justify-content: start; /* Align buttons to the start */
+}
+
+ #deleteButtonsContainer button {
+  display: inline-block;
+  margin-right: 10px; /* Adds a 10-pixel gap between buttons */
+  vertical-align: middle; /* Keeps the buttons vertically aligned */
+}
+
+#certButtonContainer {
+    display: inline-block; 
+    gap: 10px; 
+    flex-wrap: nowrap; 
+    align-items: center; 
+    justify-content: flex-start;
+	width: 100%; 
+}
+
+#certButtonContainer button {
+    flex-shrink: 0; 
+	margin-bottom: 5px;
+}
+

@@ -1,0 +1,51 @@
+package com.ttc.fitPT.ptSchedule.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+/**
+ * RoleRedirectController handles routing for different user roles after login.
+ * Based on the user's role, they will be directed to their specific home page.
+ * This controller listens to requests at "/api/roleRedirect".
+ */
+@Controller
+@RequestMapping("/api/roleRedirect")
+public class RoleRedirectController {
+
+	/**
+ 	* This method handles GET requests for the Administrator role.
+ 	* It redirects users with the "Administrator" role to their home page.
+ 	*
+ 	* @return The "administratorHome" template, directing Spring to look for administratorHome.html in the templates folder
+ 	*/
+	@GetMapping("/administrator")
+	public String administratorHome() {
+    	return "administratorHome"; // Corresponds to administratorHome.html
+	}
+
+	/**
+ 	* This method handles GET requests for the Scheduler role.
+ 	* It redirects users with the "Scheduler" role to their home page.
+ 	*
+ 	* @return The "schedulerHome" template, directing Spring to look for schedulerHome.html in the templates folder
+ 	*/
+	@GetMapping("/scheduler")
+	public String schedulerHome() {
+    	return "schedulerHome"; // Corresponds to schedulerHome.html
+	}
+
+	/**
+ 	* This method handles GET requests for the Therapist role.
+ 	* It redirects users with the "Therapist" role to their home page.
+ 	*
+ 	* @return The "therapistHome" template, directing Spring to look for therapistHome.html in the templates folder
+ 	*/
+	@GetMapping("/therapist")
+	public String therapistHome() {
+    	return "therapistHome"; // Corresponds to therapistHome.html
+	}
+}
+
+
+

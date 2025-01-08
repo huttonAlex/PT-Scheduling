@@ -1,0 +1,28 @@
+package com.ttc.fitPT.ptSchedule.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/api/roleRedirect")
+public class RoleRedirectController {
+
+	// Maps specific roles to their respective home pages
+	@GetMapping("/administrator")
+	public String administratorHome() {
+    	return "administratorHome"; // Corresponds to administratorHome.html
+	}
+
+	@GetMapping("/scheduler")
+	public String schedulerHome() {
+    	return "schedulerHome"; // Corresponds to schedulerHome.html
+	}
+
+	@GetMapping("/therapist")
+	public String therapistHome() {
+    	return "therapistHome"; // Corresponds to therapistHome.html
+	}
+}
+
+

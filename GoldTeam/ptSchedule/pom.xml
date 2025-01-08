@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The project descriptor for Maven-based builds -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- Model version of the POM -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- This section specifies that this project inherits from the Spring Boot starter parent project -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>  
+        <artifactId>spring-boot-starter-parent</artifactId> 
+        <version>3.3.3</version>  
+        <relativePath/>  <!-- Empty, Maven will fetch the parent from its repository -->
+    </parent>
+
+    <groupId>com.ttc.fitPT</groupId>  
+    <artifactId>ptSchedule</artifactId>  
+    <version>0.0.1-SNAPSHOT</version> 
+
+    <!-- Project metadata -->
+    <name>ptSchedule</name>  
+    <description>Spring Boot Project for Fit PT Schedule</description> 
+
+    <!-- Used to set global variables like Java version -->
+    <properties>
+        <java.version>17</java.version>  <!-- Project uses Java 17 -->
+    </properties>
+
+    <!-- Dependencies for the project -->
+    <dependencies>
+        <!-- Spring Boot JDBC dependency for database access -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
+        <!-- Spring Boot Web dependency for building web applications with Spring MVC -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+           
+     
+        <!-- MySQL driver dependency for connecting to a MySQL database -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <scope>runtime</scope>  <!-- Scope runtime means it's only needed during runtime, not compile time -->
+        </dependency>
+
+        <!-- Spring Boot Testing dependencies, used for writing unit and integration tests -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>  <!-- Test scope means it's only used in testing and not included in production builds -->
+        </dependency>
+
+        <!-- Thymeleaf dependency, a popular template engine used for rendering dynamic HTML pages in Spring Boot -->
+        <!-- This was needed rendering the HTML pages-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+    </dependencies>
+
+    <!-- Build configurations -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- Repositories for fetching Spring Boot dependencies -->
+    <repositories>
+        <!-- Spring milestone repository, used for fetching non-production milestone versions of Spring -->
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>  <!-- Milestone repo is not used for snapshot dependencies -->
+            </snapshots>
+        </repository>
+
+        <!-- Spring snapshots repository, used for fetching the latest snapshot versions -->
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <releases>
+                <enabled>false</enabled>  <!-- This repository is only for snapshots, not for releases -->
+            </releases>
+        </repository>
+    </repositories>
+
+    <!-- Plugin repositories (for Maven plugins) -->
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
+</project>

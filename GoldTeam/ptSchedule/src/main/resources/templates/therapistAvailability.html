@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/therapistAvailabilityPage.css">
+	<title>Therapist Scheduler Page</title>
+	<script src="/js/therapistAvailability.js"></script>
+	<script src="/js/defaultAvailability.js"></script>
+	<script src="/js/therapistOverview.js"></script>
+</head>
+<body>
+	<header>
+    	<div class="inner">
+        	<div class="logo">
+            	<div>
+                	<img src="/images/header.jpg" alt="logo">
+            	</div>
+        	</div>
+        	<nav>
+            	<li><span><a href="/api/auth/logout" class="button">Logout</a></span></li>
+				<li><span><a href="/api/user/profile">User Profile</a></span></li>
+				<li><span><a href="/api/therapist/availability">Schedule</a></span></li>
+            	<li>
+            	</li>
+        	</nav>
+    	</div>
+	</header>
+    	<main>
+			<!--<button id="modifyAppointment" type="button">Modify Appointment</button>
+			<button id="scheduleAppointment" type="button">Schedule an Appointment</button>-->
+        	
+        	<br><br>
+			<div id="button-container">
+							<button id="viewDefaultSched" type="button">Set Default Schedule</button>
+							<button id="viewModifyAvail" type="button">Set Time Off</button>
+							<button id="viewAppointments" type="button">View Appointments</button>
+							
+						</div>
+						<br>
+						<h1 id="headerTitle">Set Time Off</h1>
+						<br><br>
+						<div class="modifyAvailContainer" id="modifyAvailContainer">
+										
+						                <div class="dateContainer">	
+									        <div class="calWrapper">
+									            <header>
+									              <p class="current-date"></p>
+									              <div class="icons">
+									                <span id="prev" class="material-symbols-rounded"><</span>
+									                <span id="next" class="material-symbols-rounded">></span>
+									              </div>
+									            </header>
+									            <div class="calendar">
+									              <ul class="weeks">
+									                <li>Sun</li>
+									                <li>Mon</li>
+									                <li>Tue</li>
+									                <li>Wed</li>
+									                <li>Thu</li>
+									                <li>Fri</li>
+									                <li>Sat</li>
+									              </ul>
+									              <ul class="days"></ul>
+									            </div>
+									        </div>
+						                </div>
+										<div id = rightContainer>
+										<div class="dateInfoDisplay" style="display: none">
+
+										</div>
+						                <div class="timeSelectContainer">
+											<div class="startTimeContainer">
+												<label for="startTimeSelect">Select Start Time Off:</label>
+												<br>
+												<select id="startTimeSelect">
+													<option value="">--Select Start Time--</option>
+													<option value="08:00 AM">08:00 AM</option>
+													<option value="09:00 AM">09:00 AM</option>
+													<option value="10:00 AM">10:00 AM</option>
+													<option value="11:00 AM">11:00 AM</option>
+													<option value="12:00 PM">12:00 PM</option>
+													<option value="01:00 PM">01:00 PM</option>
+													<option value="02:00 PM">02:00 PM</option>
+													<option value="03:00 PM">03:00 PM</option>
+													<option value="04:00 PM">04:00 PM</option>
+												</select>
+											</div>
+											
+						                    <div class="endTimeContainer">
+												<label for="endTimeSelect">Select End Time Off:</label>
+												<br>
+												<select id="endTimeSelect">
+													<option value="">--Select End Time--</option>
+												</select>
+											</div>
+											
+										</div>
+										<div id="buttonContainer">
+										<button id="setAvailabilityButton">Set Time Off</button>
+										<button id="cancelAvailabilityButton">Cancel Time Off</button>
+										
+										</div>
+										
+										<input type="hidden" id="selectedDates" value=""/>
+									</div>
+									</div>	
+			<div class="defaultAvailContainer" id="defaultAvailContainer" style="display: none">
+								<div class="workingInfo">
+									
+								</div>
+								<div id="dayButtonContainer">
+									<h3>Select Days</h3>
+								<div class="day-selection">
+									<div class="day-box" data-day="Monday">Monday</div>
+									<div class="day-box" data-day="Tuesday">Tuesday</div>
+									<div class="day-box" data-day="Wednesday">Wednesday</div>
+									<div class="day-box" data-day="Thursday">Thursday</div>
+									<div class="day-box" data-day="Friday">Friday</div>
+									<div class="day-box" data-day="Saturday">Saturday</div>
+								</div>
+								</div>
+								<div class="defaultTimeSelectContainer">
+									<div class="defaultStartTimeContainer">
+										<label for="defaultStartTimeSelect">Select Start Time:</label>
+										<br>
+										<select id="defaultStartTimeSelect">
+											<option value="">--Select Start Time--</option>
+											<option value="No Availability">No Availability</option>
+											<option value="08:00 AM">08:00 AM</option>
+											<option value="09:00 AM">09:00 AM</option>
+											<option value="10:00 AM">10:00 AM</option>
+											<option value="11:00 AM">11:00 AM</option>
+											<option value="12:00 PM">12:00 PM</option>
+											<option value="01:00 PM">01:00 PM</option>
+											<option value="02:00 PM">02:00 PM</option>
+											<option value="03:00 PM">03:00 PM</option>
+											<option value="04:00 PM">04:00 PM</option>
+										</select>
+									</div>
+									<br>
+									<br>
+									<div class="defaultEndTimeContainer">
+										<label for="defaultEndTimeSelect">Select End Time:</label>
+										<br>
+										<select id="defaultEndTimeSelect">
+											<option value="">--Select End Time--</option>
+										</select>
+									</div>
+									<button id="setDefaultAvailabilityButton">Set Availability</button>
+								</div>
+								</div>
+								</div>
+								<div id="appointmentOverviewContainer" style="display: none;">
+												<div id="overviewCalendarContainer">
+												<div id="overviewCalendar" class="calWrapper overviewCalWrapper">
+													<header>
+													  <p class="current-date"></p>
+													  <div class="icons">
+														<span id="overviewPrev" class="material-symbols-rounded"><</span>
+								    					<span id="overviewNext" class="material-symbols-rounded">></span>
+													  </div>
+													</header>
+													<div class="calendar">
+													  <ul class="weeks">
+														<li>Sun</li>
+														<li>Mon</li>
+														<li>Tue</li>
+														<li>Wed</li>
+														<li>Thu</li>
+														<li>Fri</li>
+														<li>Sat</li>
+													  </ul>
+													  <ul class="overviewDays">
+													  </ul>
+													</div>
+												</div>
+												</div>
+												<div id="overviewReturnContainer">
+													<h2>Appointments</h2>
+													
+
+
+												</div>
+
+												<div id="overviewInfoContainer" style="display: none;">
+													<h3>Appointment Details</h3>
+													<div id="appointmentDetails"></div> <!-- Ensure this ID matches exactly -->
+												</div>
+
+											</div>
+
+						
+    	</main>
+		<br><br><br>
+	<footer>
+    	<p>Gold Team CPT275 | Therapist</p>
+	</footer>
+</body>
+</html>

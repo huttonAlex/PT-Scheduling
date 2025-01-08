@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/schedulerPage.css">
+	<title>Scheduler Schedule Page</title>
+
+</head>
+<body>
+	<header>
+    	<div class="inner">
+        	<div class="logo">
+            	<div>
+                	<img src="/images/header.jpg" alt="logo">
+            	</div>
+        	</div>
+        	<nav>
+            	
+            	
+            	<li><span><a href="/api/auth/logout" class="button">Logout</a></span></li>
+				<li><span><a href="/api/user/profile">User Profile</a></span></li>
+				<li><span><a href="/api/scheduler/schedule">Schedule</a></span></li>
+            	<li>
+            	</li>
+        	</nav>
+    	</div>
+	</header>
+    	<main>
+			<div class="button-container">
+				<button id="scheduleAppointment" type="button">Schedule an Appointment</button>
+                <button id="viewAppointments" type="button">View Appointments</button>
+				<button id="modifyAppointment" type="button">Find Appointment</button>
+				<button id="ratingsPageView" type="button">Rate Therapists</button>
+			           </div>
+			           <h1 id="headerTitle">Schedule an Appointment</h1>
+			           <br><br>
+			           <div id="selectorsContainer">
+			               <div class="alignLeftBox">
+			                   <div class="therapy-type-container">
+			                           <label for="therapyTypeSelector">Select Therapy Type:</label>
+			                           <select id="therapyTypeSelector" name="therapyTypeSelector">
+			                               <option value="" disabled selected>Select a therapy type</option>
+			                               <option value="Exercise Therapy">Exercise Therapy</option>
+			                               <option value="Pregnancy/Postpartum">Pregnancy/Postpartum Therapy</option>
+			                               <option value="Pelvic">Pelvic Therapy</option>
+			                               <option value="Hand">Hand Therapy</option>
+			                               <option value="Taping">Taping Therapy</option>
+			                               <option value="Lymphedema">Lymphedema Therapy</option>
+			                               <option value="Rehabilitative">Rehabilitative Therapy</option>
+			                               <option value="Conditioning">Conditioning Therapy</option>
+			                               <option value="Yoga">Yoga Therapy</option>
+			                               <option value="Geriatric">Geriatric Therapy</option>
+			                               <option value="Massage">Massage Therapy</option>
+			                               <option value="Orthopedic">Orthopedic Therapy</option>
+			                               <option value="Alignment">Alignment Therapy</option>
+			                               <option value="Pediatric">Pediatric Therapy</option>
+			                               <option value="Sports">Sports Therapy</option>
+			                               <option value="Women's">Women's Therapy</option>
+			                           </select>
+			                   </div>
+			                   <br><br>
+			                   <div id="scheduleCalendar" class="calWrapper">
+			                       <header>
+			                         <p class="current-date"></p>
+			                         <div class="icons">
+			                           <span id="mainPrev" class="material-symbols-rounded"><</span>
+			                           <span id="mainNext" class="material-symbols-rounded">></span>
+			                         </div>
+			                       </header>
+			                       <div class="calendar">
+			                         <ul class="weeks">
+			                           <li>Sun</li>
+			                           <li>Mon</li>
+			                           <li>Tue</li>
+			                           <li>Wed</li>
+			                           <li>Thu</li>
+			                           <li>Fri</li>
+			                           <li>Sat</li>
+			                         </ul>
+			                         <ul class="days"></ul>
+			                       </div>
+			                   </div>
+			               </div>
+			               <div class="alignMiddleBox">
+			                   <div class="timeContainer">
+			                       <label for="timeSelect">Select Time:</label>
+			                       <select id="timeSelect" disabled>
+			                           <option value="">--Select Time--</option>
+			                           <option value="08:00 AM">08:00 AM</option>
+			                           <option value="09:00 AM">09:00 AM</option>
+			                           <option value="10:00 AM">10:00 AM</option>
+			                           <option value="11:00 AM">11:00 AM</option>
+			                           <option value="12:00 PM">12:00 PM</option>
+			                           <option value="01:00 PM">01:00 PM</option>
+			                           <option value="02:00 PM">02:00 PM</option>
+			                           <option value="03:00 PM">03:00 PM</option>
+			                           <option value="04:00 PM">04:00 PM</option>
+			                       </select>
+			                       <label for="therapistsDropdown">Available Therapists:</label>
+			                       <select id="therapistsDropdown" disabled>
+			                           <option value="" disabled>Select Therapist</option>
+			                       </select>
+			                   </div>
+			              
+			                   <select name="therapyType" id="therapyType" required>
+			                       <option value="">Select a Therapy Type</option>
+			                       <option value="Exercise Therapy">Exercise Therapy</option>
+			                       <option value="Pregnancy/Postpartum">Pregnancy/Postpartum Therapy</option>
+			                       <option value="Pelvic">Pelvic Therapy</option>
+			                       <option value="Hand">Hand Therapy</option>
+			                       <option value="Taping">Taping Therapy</option>
+			                       <option value="Lymphedema">Lymphedema Therapy</option>
+			                       <option value="Rehabilitative">Rehabilitative Therapy</option>
+			                       <option value="Conditioning">Conditioning Therapy</option>
+			                       <option value="Yoga">Yoga Therapy</option>
+			                       <option value="Geriatric">Geriatric Therapy</option>
+			                       <option value="Massage">Massage Therapy</option>
+			                       <option value="Orthopedic">Orthopedic Therapy</option>
+			                       <option value="Alignment">Alignment Therapy</option>
+			                       <option value="Pediatric">Pediatric Therapy</option>
+			                       <option value="Sports">Sports Therapy</option>
+			                       <option value="Women's">Women's Therapy</option>
+			                   </select>
+			                   <br><br>
+
+
+
+
+			              
+			                   <input type="date" id="dateOfApt" name="dateOfApt" required>
+			                   <br><br>
+			                  
+			                  
+			                   <input type="time" id="timeOfApt" name="timeOfApt" required>
+			                   <br><br>
+
+
+			                   <br><br>
+			                   <form id="appointmentForm" class="appointmentForm">
+			                      
+			                       
+			      
+			                       <label for="firstName">Patient First Name:</label>
+			                       <input type="text" id="firstName" name="firstName" required>
+			                       <br>
+			      
+			                       <label for="lastName">Patient Last Name:</label>
+			                       <input type="text" id="lastName" name="lastName" required>
+			                       <br>
+			                  
+			                       <label for="email">Patient Email:</label>
+			                       <input type="email" id="email" name="email" required>
+			                       <br>
+			                  
+			                       <label for="phone">Patient Phone:</label>
+			                       <input type="tel" id="phone" name="phone" required>
+			                       <br>
+			                                  
+			                       <label for="notes">Notes:</label>
+			                       <input type="text" name="notes" id="notes">
+			                       <br>
+			  
+			                       <input type="submit" value="Add Appointment" id="addAppointment">
+								   <br>
+			                       <input type="reset" value="Clear" id="clearAptForm">
+			                   </form>
+			               </div>
+			           </div>
+			<div id="modifyContainer" style="display: none;">
+				<div id="formContainer">
+					<form class="modifyForm">
+						<h2>Find Appointment</h2>
+						<br>
+						<label for="firstName">Patient First Name:</label>
+						<input type="text" id="findFirstName" name="findFirstName">
+						<br>
+
+						<label for="lastName">Patient Last Name:</label>
+						<input type="text" id="findLastName" name="findLastName">
+						<br>
+					
+						<label for="email">Patient Email:</label>
+						<input type="email" id="findEmail" name="findEmail">
+						<br>
+						
+						<label for="findPhone">Patient Phone:</label>
+						<input type="tel" id="findPhone" name="findPhone">
+						<br>
+
+						
+						<!-- I Asume this will get changed-->
+						
+						<button type="button" id="findAppointment">Find Appointment</button>
+						<input type="reset" value="Clear" id="clearFindForm">
+					</form>
+				</div>
+				<div id="appointmentsContainer" style="display: none;">
+					<h2>Appointments Found</h2>
+				    <div id="appointmentSelectContainer">
+				                   
+				     </div>
+				</div>
+				<div id="appointmentReturnContainer" style="display: none;">
+					<form class="returnForm">
+						<h2>Appointment Info</h1>
+						<br>
+						<div class="input-row">
+						<div class="input-wrapper">
+						<label for="findFirstName">First Name:</label>
+						<input type="text" id="firstNameArea">
+						<br>
+						<label for="findLastNameArea">Last Name:</label>
+						<input type="text" id="lastNameArea">
+						<br>
+						<label for="findEmailArea">Email:</label>
+						<input type="email" id="emailArea">
+						<br>
+						<label for="findPhoneArea">Phone:</label>
+						<input type="phone" id="phoneArea">
+						<br>
+						<input type ="hidden" id="findAppointmentId" value="">
+						
+						
+						<label for="modifyTherapySelector">Therapy Type:</label>
+						<select id="modifyTherapySelector" name="modifyTherapySelector">
+							<option value="" disabled selected>Select a therapy type</option>
+							<option value="Exercise Therapy">Exercise Therapy</option>
+							<option value="Pregnancy/Postpartum">Pregnancy/Postpartum Therapy</option>
+							<option value="Pelvic">Pelvic Therapy</option>
+							<option value="Hand">Hand Therapy</option>
+							<option value="Taping">Taping Therapy</option>
+							<option value="Lymphedema">Lymphedema Therapy</option>
+							<option value="Rehabilitative">Rehabilitative Therapy</option>
+						    <option value="Conditioning">Conditioning Therapy</option>
+							<option value="Yoga">Yoga Therapy</option>
+							<option value="Geriatric">Geriatric Therapy</option>
+							<option value="Massage">Massage Therapy</option>
+							<option value="Orthopedic">Orthopedic Therapy</option>
+							<option value="Alignment">Alignment Therapy</option>
+							<option value="Pediatric">Pediatric Therapy</option>
+							<option value="Sports">Sports Therapy</option>
+							<option value="Women's">Women's Therapy</option>
+						</select>
+						
+						
+						
+						</div>
+						<div class="input-wrapper">
+							<label for="findScheduledTherapist">Scheduled Therapist:</label>
+							<p id="findScheduledTherapist"></p>
+						
+						<label for="findDateArea">Date:</label>
+						<input type="date" id="findDateArea" required>
+						<br>
+						<label for="findTimeArea">Time:</label>
+						<input type="time" id="findTimeArea" required>
+						<br>
+						<label for="modifyTherapistsDropdown">Available Therapists:</label>
+						<select id="modifyTherapistsDropdown">
+						<option value="" disabled>Select Therapist</option>
+					    </select>
+						<br>
+						<label for="findNotesArea">Notes:</label>
+						<input type="textarea" id="findNotesArea" required>
+						<br>
+						</div>
+						</div>
+						<button type="button" id="cancelAppointment">Cancel Appointment</button>
+						<button type="button" id="editAppointment">Edit Appointment</button>
+					</form>
+				</div>
+			</div>
+			<div id="appointmentOverviewContainer" style="display: none;">
+							<div id="overviewCalendarContainer">
+							<div id="overviewCalendar" class="overviewCalWrapper">
+								<header>
+								  <p class="current-date"></p>
+								  <div class="icons">
+									<span id="overviewPrev" class="material-symbols-rounded"><</span>
+			    					<span id="overviewNext" class="material-symbols-rounded">></span>
+								  </div>
+								</header>
+								<div class="calendar">
+								  <ul class="weeks">
+									<li>Sun</li>
+									<li>Mon</li>
+									<li>Tue</li>
+									<li>Wed</li>
+									<li>Thu</li>
+									<li>Fri</li>
+									<li>Sat</li>
+								  </ul>
+								  <ul class="overviewDays">
+								  </ul>
+								</div>
+							</div>
+							</div>
+							<div id="overviewReturnContainer">
+								<h2>Appointments</h2>
+								
+
+
+							</div>
+
+							<div id="overviewInfoContainer" style="display: none;">
+								<h3>Appointment Details</h3>
+								<div id="appointmentDetails"></div>
+								<button id="sendToModifyButton" class="sendToModifyButton">Modify Appointment</button>
+							</div>
+
+						</div>
+						<div id="ratingPageContainer" style="display: none;">
+
+										<div id="ratingsTableContainer" class="scrollContainer">
+											<table id="therapistRatingsTable">
+											  <thead>
+												<tr>
+												  <th id="checkBox"></th>
+												  <th id="therapistHeader">Therapist</th>
+												  <th id="numOfRatingsHeader">Number Of Ratings</th>
+												</tr>
+											  </thead>
+											  <tbody>
+												<!-- Table rows go here -->
+											  </tbody>
+											</table>
+											
+										</div>
+
+										<div id="ratingBox" style="display: none;">
+											<h2>Rate Therapist</h2>
+											<label for="therapistName">Name:</label>
+						                    			<br>
+											<label for="numRatings">Number of Ratings</label>
+											<br>
+											<div id="ratingContainer">
+												<div id="starRating" class="stars">
+													<span data-value="5" class="star">&#9733;</span>
+													<span data-value="4" class="star">&#9733;</span>
+													<span data-value="3" class="star">&#9733;</span>
+													<span data-value="2" class="star">&#9733;</span>
+													<span data-value="1" class="star">&#9733;</span>
+												</div>
+											</div>
+											<button id="setRating" type="button">Confirm Rating</button>
+											<button id="cancelRating" type="button">Cancel</button>
+											
+											
+
+										</div>
+
+										
+
+									</div>
+									<div id="dateDisplay"></div>
+									<br>
+									<div id="dateDisplay2"></div>
+									
+    	</main>
+	</div>
+	<div id="customAlert" class="custom-alert">
+	    <p id="customAlertMessage"></p>
+	    <button onclick="closeCustomAlert()">OK</button>
+	</div>
+
+
+	<footer>
+    	<p>Gold Team CPT275 | Scheduler</p>
+	</footer>
+	<script src="/js/scheduler.js"></script>
+	<script src="/js/appointmentOverview.js"></script>
+	<script src="/js/ratingsPage.js"></script>	
+</body>
+</html>

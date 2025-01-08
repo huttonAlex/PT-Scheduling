@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/adminDashboard.css">
+        <script src="/js/adminDashboard.js"></script>
+        <title>Administrator Home Page</title>
+    </head>
+    <body>
+        <header>
+            <div class="inner">
+                <div class="logo">
+                    <div>
+                        <img src="/images/header.jpg" alt="logo">
+                    </div>
+                </div>
+                <nav>
+                    <li><span><a href="/api/auth/logout" class="button">Logout</a></span></li>
+                    <li><span><a href="/api/user/profile">User Profile</a></span></li>
+					<li><span><a href="/api/admin/dashboard"> Dashboard</a></span></li>
+                    
+                </nav>
+            </div>
+        </header>
+        <div id="wrapper">
+            <br>
+            <br>
+            <div id="buttonBox">
+                <button type="button" id="showManageUsers">Manage Users</button>
+                <button type="button" id="showDeleteUsers">Delete Users</button>
+                <button type="button" id="addNewUsersBtn">Add New Users</button>
+                <button type="button" id="showManageCerts">Manage Certifications</button>   
+            </div>
+			<main>
+			                <h1>Manage Users</h1>
+			</main>
+            <div id="manageUserPage">
+             
+              <div id="tableContainer" class="scrollContainer">
+                <table id="personsTable">
+                  <thead>
+                    <tr>
+					  <th id="selectHeader"></th>
+                      <th id="firstNameHeader">First Name</th>
+                      <th id="lastNameHeader">Last Name</th>
+                      <th id="personTypeHeader">Account Type</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Table rows go here -->
+                  </tbody>
+                </table>	
+              </div>
+			  <button type="button" id="cancelUserSelection" style="display: none;">Cancel</button>  
+            </div>
+              <div id="viewUserContainer" style="display: none;">
+                <h2>User Information</h2>
+				<div id="viewUserDetails">
+				    <p><strong>First Name:</strong> <span id="viewFirstName"></span></p>
+				   <p><strong>Last Name:</strong> <span id="viewLastName"></span></p>
+				   <p><strong>Email:</strong> <span id="viewEmail"></span></p>
+				   <p><strong>Phone:</strong> <span id="viewPhone"></span></p>
+				   <p><strong>Username:</strong> <span id="viewUserName"></span></p>
+				   <p><strong>Password:</strong> <span id="viewPassword"></span></p>
+				   <p id="viewRating" style="display: none;">
+				    <strong>Rating:</strong> <span id="viewRatingStars"></span> <span id="viewRatingValue"></span>
+				   </p>
+				   <button type="button" id="editUserBtn">Edit User</button>
+				</div>
+              </div>
+              <div id="editTherapistCerts">
+                <div id="therapistCertTableContainer" class="scrollContainer">
+                  <table id="therapistCertsTable">
+                    <thead>
+                      <tr>
+                        <th id="therapyTypeHeader">Therapy Type</th>
+                        <th id="certNameHeader">Certificate Name</th>
+                        <th id="certDefHeader">Definition</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Table rows go here -->
+                    </tbody>
+                  </table>
+				  <!-- POSSIBLE CANCEL SELECT BUTTON HERE -->
+                </div>
+				<div id = "certSelectBtnContainer">
+				<button type="button" id="addTherapistCertButton">Add Certificates To User</button>
+				<button type="button" id="doneButton1">Done</button>
+                <button type="button" id="removeCertsButton">Remove Selected Certificates</button>
+                </div>
+              </div>
+              <div id="addTherapistCertContainer">
+                <div id="addtherapistCertTableContainer" class="scrollContainer">
+                  <table id="addtherapistCertsTable">
+                    <thead>
+                      <tr>
+                        <th id="therapyTypeHeader">Therapy Type</th>
+                        <th id="certNameHeader">Certificate Name</th>
+                        <th id="certDefHeader">Definition</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Table rows go here -->
+                    </tbody>
+                  </table>
+				  <!-- POSSIBLE CANCEL SELECT BUTTON HERE -->
+                </div>
+                <button type="button" id="addCertsToTherapist">Add</button>
+                <button type="button" id="cancelAddCerts">Cancel</button>
+              </div>
+
+                <div id="editUserForm">
+                    <h2>Edit User</h2>
+                    <form id="userForm">
+						<div class="input-group">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" id="firstName" name="firstName"><br><br>
+                        </div>
+						<div class="input-group">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" id="lastName" name="lastName"><br><br>
+						</div>
+						<div class="input-group">
+						<label for="email">Email:</label>
+						<input type="email" id="email" name="email"><br><br>
+						</div>
+						<div class="input-group">
+						<label for="phone">Phone:</label>
+						<input type="tel" id="phone" name="phone"><br><br>
+						</div>
+						<div class="input-group">
+						<label for="username">Username:</label>
+						<p id= "username"></p><br><br>
+						</div>
+						<div class="input-group">
+						<label for="password">Password:</label>
+						<p id= "password"></p><br><br>
+						</div>
+						<div class="input-group">
+						<div id="rating-container" class="rating-container">
+						  <label for="ratingStars">Rating:</label>
+						  <span id="editRatingStars"></span>
+						</div>
+						</div>
+
+                
+                        <div id="additionalFields"></div>
+                
+                        <button type="button" id="saveChangesBtn">Save Changes</button>
+						<button type="button" id="doneButton2">Done</button>
+                        <button type="button" id="cancelEditBtn">Cancel</button>
+                    </form>
+                </div>
+                
+            
+            <div id="deleteUsersPage">
+                <div id="tableContainer" class="scrollContainer">
+                    <table id="deleteTable">
+                      <thead>
+                        <tr>
+						  <th></th>
+                          <th id="deleteFirstNameHeader">First Name</th>
+                          <th id="deleteLastNameHeader">Last Name</th>
+                          <th id="deletePersonTypeHeader">Account Type</th>
+                        </tr>
+                      </thead>
+                      <tbody id="deleteTableBody">
+                        
+                      </tbody>
+                    </table>
+                </div>
+                <br>
+				<div id="deleteButtonsContainer">
+				<button type="button" id="cancelDeleteUserSelection" style="display: none;">Cancel</button> 
+                <button type="button" id="deleteUsersButton" style="display: none;">Delete</button> 
+                </div>
+            </div>
+            <div id="manageCertsPage">
+
+              <div id="certTableContainer" class="scrollContainer">
+                <table id="certsTable">
+                  <thead>
+                    <tr>
+					  <th></th>
+                      <th id="therapyTypeHeader1">Therapy Type</th>
+                      <th id="certNameHeader1">Certificate Name</th>
+                      <th id="certDefHeader1">Definition</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Table rows go here -->
+                  </tbody>
+                </table>
+              </div>
+              <br>
+              <div id = "certButtonContainer">
+			  <button type="button" id="addCertButton">Add New Certificate</button>
+			  <button type="button" id="cancelCertSelect"style="display: none;">Cancel</button>
+              <button type="button" id="deleteCertsButton">Delete</button>
+              
+            </div>
+              <div id="addCertContainer" style="display: none;">
+                <h2>Create Certificate</h2>
+                
+                    <form id="addCertForm">
+                        <label for="therapyType">Therapy Type:</label>
+                        <input type="text" id="therapyType" name="therapyType"><br><br>
+                        
+                        <label for="certName">Certificate Name:</label>
+                        <input type="text" id="certName" name="certName"><br><br>
+
+                        <label for="certDef">Certificate Definition:</label>
+                        <input type="text" id="certDef" name="certDef"><br><br>
+                
+                        <button type="button" id="saveCertBtn">Save Changes</button>
+                        <button type="button" id="cancelCertBtn">Cancel</button>
+                    </form>
+              </div>  
+            </div>
+            <div id="addNewUser" style="display: none;">
+              <form id="addNewUserForm">
+                  <label for="addNewUserFirstName">First Name:</label>
+                  <input type="text" id="addNewUserFirstName"><br><br>
+                  
+                  <label for="addNewUserLastName">Last Name:</label>
+                  <input type="text" id="addNewUserLastName"><br><br>
+                  
+                  <label for="addNewUserRoleType">Role Type</label>
+                  <select id="addNewUserRoleType"> 
+                      <option value="ADMINISTRATOR">ADMINISTRATOR</option>
+                      <option value="SCHEDULER">SCHEDULER</option>
+                      <option value="THERAPIST">THERAPIST</option>
+                  </select><br><br>
+
+                  
+                      <label for="addNewUserEmail">Email:</label>
+                      <input type="text" id="addNewUserEmail" name="addNewUserEmail"><br><br>
+                      
+                      <label for="addNewUserPhone">Phone:</label>
+                      <input type="text" id="addNewUserPhone" name="addNewUserPhone"><br><br>
+                  
+          
+                  <button type="button" id="addNewUserSubmitButton">Submit</button>
+                  <button type="button" id="addNewUserCancelButton">Cancel</button>
+              </form>
+          </div>
+            <div class="custom-alert" id="customAlert">
+                <div id="customAlertMessage">Are you sure you want to delete the selected users?</div>
+                <br>
+                <div id="alertButtonsContainer">
+                    <button id="alertConfirmButton">Confirm</button>
+                    <button id="alertCancelButton">Cancel</button>
+                </div>
+            </div>
+
+			<div class="custom-alert2" id="customAlert2">
+						                <div id="customAlertMessage2">Are you sure you want to delete the selected users?</div>
+						                <br>
+						                <div id="alertButtonsContainer2">
+						                    <button id="alertConfirmButton2">Confirm</button>
+						                    
+						                </div>
+						 </div>
+
+
+            <footer>
+                <p>Gold Team CPT275 | Administrator</p>
+            </footer>
+
+
+        </div>
+    </body>
+</html>
